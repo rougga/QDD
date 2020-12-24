@@ -1,4 +1,4 @@
-const position = {x: 0, y: 0};
+let  position = {x: 0, y: 0};
 interact('.resize-drag').resizable({
     edges: {left: true, right: true, bottom: true, top: true},
 
@@ -39,16 +39,16 @@ interact('.resize-drag').resizable({
         .draggable({
             listeners: {
                 move: function (event) {
-                    let $element=$(event.target);
-                    let x = $element.position().left ;
-                    let y = $element.position().top ;
-                    $element.attr("data-x",x);
-                    $element.attr("data-y",y);
-                    //console.log(`X= ${x+event.dx} Y= ${y}`);
+                    let $element = $(event.target);
+                    position.x = Number($element.attr("data-x"));
+                    position.y = Number($element.attr("data-y"));
+                    
                     position.x += event.dx;
                     position.y += event.dy;
-                    //$element.css({top: x+(event.dx), left: y+(event.dy), position:'absolute'});
-                   event.target.style.transform =`translate(${position.x}px, ${position.y}px)`;
+                    
+                    event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
+                    $element.attr("data-x", position.x);
+                    $element.attr("data-y", position.y);
                 }
             },
             inertia: false,
