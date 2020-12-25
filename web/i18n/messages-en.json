@@ -1,14 +1,11 @@
 {
     "@metadata": {
         "authors": [
-            "Alice",
-            "David",
-            "Santhosh"
+            "ROUGGA"
         ],
-        "last-updated": "2012-09-21",
-        "locale": "en",
-        "message-documentation": "qqq",
-        "AnotherMetadata": "AnotherMedatadataValue"
+        "last-updated": "",
+        "locale": "fr",
+        "message-documentation": "qqq"
     },
     "lang": "en"
 }

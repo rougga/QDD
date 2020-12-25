@@ -26,22 +26,22 @@
         <div class="container-fluid p-0 m-0">
             <div class="row w-100 bg-dark p-0 m-0 d-flex justify-content-between align-items-center" style="height: 7vh" id="menu">
                 <div>
-                    <a href="#" class="btn btn-secondary border ml-4 mr-1 " id="text">
+                    <a href="#" class="btn btn-secondary border ml-4 mr-1 " id="text" data-toggle="modal" data-target="#modal" data-type="@text">
                         <img src="./img/icon/text.png" alt=""/>
                     </a>
-                    <a href="#" class="btn btn-secondary border  mx-1" id="clock">
+                    <a href="#" class="btn btn-secondary border  mx-1" id="clock" data-toggle="modal" data-target="#modal" data-type="@clock">
                         <img src="./img/icon/clock.png" alt=""/>
                     </a>
-                    <a href="#" class="btn btn-secondary border mx-1">
+                    <a href="#" class="btn btn-secondary border mx-1" id="image" data-toggle="modal" data-target="#modal" data-type="@image">
                         <img src="./img/icon/image.png" alt=""/>
                     </a>
-                    <a href="#" class="btn btn-secondary border mx-1">
+                    <a href="#" class="btn btn-secondary border mx-1" id="video" data-toggle="modal" data-target="#modal" data-type="@video">
                         <img src="./img/icon/video.png" alt=""/>
                     </a>
-                    <a href="#" class="btn btn-secondary border mx-1">
+                    <a href="#" class="btn btn-secondary border mx-1" id="weather" data-toggle="modal" data-target="#modal" data-type="@weather">
                         <img src="./img/icon/weather.png" alt=""/>
                     </a>
-                    <a href="#" class="btn btn-secondary border mx-1">
+                    <a href="#" class="btn btn-secondary border mx-1" id="news" data-toggle="modal" data-target="#modal" data-type="@news">
                         <img src="./img/icon/news.png" alt=""/>
                     </a>
                 </div>
@@ -56,6 +56,36 @@
             </div>
             <div class="w-100 bg-secondary p-0 m-0" style="height: 93vh" id="screen">
 
+            </div>
+            <div>
+                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLabel">New message</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group" id="textGroup">
+                                        <label for="textInput" class="col-form-label">Texte:</label>
+                                        <input type="text" class="form-control" id="textInput">
+                                    </div>
+                                    <div class="form-group" id="bgColorGroup">
+                                        <label for="bgColorInput" class="col-form-label">Arrière plan:</label>
+                                        <input type="color" class="form-control" id="bgColorInput"/>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Send message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
