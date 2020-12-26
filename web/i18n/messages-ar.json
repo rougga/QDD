@@ -7,5 +7,6 @@
         "locale": "fr",
         "message-documentation": "qqq"
     },
-    "lang": "ar"
+    "lang": "ar",
+    "styling.form.title.add.text":"أضف نصًا"
 }

@@ -7,5 +7,8 @@
         "locale": "fr",
         "message-documentation": "qqq"
     },
-    "lang": "fr"
+    "lang": "fr",
+    "styling.form.title.add.text":"Ajouter Texte :",
+    "styling.form.add.element":"Ajouter",
+    "styling.form.close":"Fermer"
 }

@@ -34,7 +34,7 @@ interact('.resize-drag').resizable({
             min: {width: 100, height: 50}
         })
     ],
-    inertia: true
+    inertia: false
 })
         .draggable({
             listeners: {
@@ -51,7 +51,7 @@ interact('.resize-drag').resizable({
                     $element.attr("data-y", position.y);
                 }
             },
-            inertia: false,
+            inertia: true,
             modifiers: [
                 interact.modifiers.restrictRect({
                     restriction: 'parent',

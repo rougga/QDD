@@ -4,33 +4,74 @@ let $menu;
 let $modal;
 
 //buttons
-let $text;
-let $clock;
-let $image;
-let $video;
-let $weather;
-let $news;
-let $emptyScreen;
-let $save;
-let $addElement;
+let $textBtn;
+let $clockBtn;
+let $imageBtn;
+let $videoBtn;
+let $weatherBtn;
+let $newsBtn;
+let $emptyScreenBtn;
+let $saveBtn;
+let $closeModalBtn;
+let $addElementBtn;
+let $modalTitle;
+let $formGroups;
+
+//form div
+let $textGroup;
+let $colorGroup;
+let $bgColorGroup;
+let $hAlignGroup;
+let $vAlignGroup;
+let $borderGroup;
+
+//form input
+let $textInput;
+let $colorInput;
+let $bgColorInput;
+let $hAlignInput;
+let $vAlignInput;
+let $borderInput;
 
 //global vars
-let elements = {};
+let $elements;
 let type;
 //initialization
 let init = function () {
+    //
     $screen = $("#screen");
     $menu = $("#menu");
-    $text = $("#text");
-    $clock = $("#clock");
-    $image = $("#image");
-    $video = $("#video");
-    $weather = $("#weather");
-    $news = $("#news");
-    $save = $("#save");
+    //
+    $textBtn = $("#text");
+    $clockBtn = $("#clock");
+    $imageBtn = $("#image");
+    $videoBtn = $("#video");
+    $weatherBtn = $("#weather");
+    $newsBtn = $("#news");
+    $saveBtn = $("#save");
+    $emptyScreenBtn = $("#emptyScreen");
+    $addElementBtn = $("#addElement");
+    $closeModalBtn = $("#closeModalBtn");
+    //
     $modal = $('#modal');
-    $emptyScreen = $("#emptyScreen");
-    $addElement = $("#addElement");
+    //
+    $modalTitle = $("#ModalLabel");
+    //
+    $formGroups = $(".form-group");
+    $textGroup = $("#textGroup");
+    $colorGroup = $("#colorGroup");
+    $bgColorGroup = $("#bgColorGroup");
+    $hAlignGroup = $("#hAlignGroup");
+    $vAlignGroup = $("#vAlignGroup");
+    $borderGroup= $("#borderGroup");;
+    //
+    $textInput = $("#textInput");
+    $colorInput = $("#colorInput");
+    $bgColorInput = $("#bgColorInput");
+    $hAlignInput = $("input[name='hAlignInput']");
+    $vAlignInput = $("input[name='vAlignInput']");
+    $borderInput = $("#borderInput");
+    //
     $.i18n().load({
         fr: './i18n/messages-fr.json',
         en: './i18n/messages-en.json',
@@ -40,15 +81,26 @@ let init = function () {
 
 //getting modal ready
 let setModal = function (type) {
-    console.log(type);
+    $formGroups.hide();
+    $addElementBtn.html($.i18n("styling.form.add.element"));
+    $closeModalBtn.html($.i18n("styling.form.close"));
     switch (type) {
-
+        case '@text':
+            $modalTitle.html($.i18n("styling.form.title.add.text"));
+            $textGroup.show();
+            $colorGroup.show();
+            $bgColorGroup.show();
+            $hAlignGroup.show();
+            $vAlignGroup.show();
+            $borderGroup.show();
+            break;
     }
 };
 let addElement = function (type) {
-    console.log(type);
-    switch (type){
-        
+    switch (type) {
+        case '@text':
+            addText();
+            break;
     }
 };
 $(document).ready(function () {
@@ -59,11 +111,14 @@ $(document).ready(function () {
         setModal(type);
     });
 
-    $emptyScreen.click(function () {
+    $emptyScreenBtn.click(function () {
         $screen.empty();
     });
-    $addElement.click(function () {
+    $addElementBtn.click(function () {
         addElement(type);
         $modal.modal('toggle');
+    });
+    $saveBtn.click(function () {
+        saveScreen();
     });
 });

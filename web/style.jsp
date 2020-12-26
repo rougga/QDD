@@ -73,15 +73,56 @@
                                         <label for="textInput" class="col-form-label">Texte:</label>
                                         <input type="text" class="form-control" id="textInput">
                                     </div>
+                                    <div class="form-group" id="colorGroup">
+                                        <label for="colorInput" class="col-form-label">Couleur:</label>
+                                        <input type="color" class="form-control" id="colorInput" value="#ffffff"/>
+                                    </div>
                                     <div class="form-group" id="bgColorGroup">
                                         <label for="bgColorInput" class="col-form-label">Arrière plan:</label>
                                         <input type="color" class="form-control" id="bgColorInput"/>
                                     </div>
+                                    <div class="form-group" id="hAlignGroup">
+                                        <h6 class="col-form-label">Alignement horizontal:</h6>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="hA1" name="hAlignInput" class="custom-control-input" value="left" checked="checked">
+                                            <label class="custom-control-label" for="hA1">Gauche</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="hA2" name="hAlignInput" class="custom-control-input" value="center">
+                                            <label class="custom-control-label" for="hA2">Centre</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="hA3" name="hAlignInput" class="custom-control-input" value="right">
+                                            <label class="custom-control-label" for="hA3">Droit</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="vAlignGroup">
+                                        <h6 class="col-form-label">Alignement vertical:</h6>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="vA1" name="vAlignInput" class="custom-control-input" value="align-self-start" checked="checked">
+                                            <label class="custom-control-label" for="vA1">Haut</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="vA2" name="vAlignInput" class="custom-control-input" value="align-self-center">
+                                            <label class="custom-control-label" for="vA2">Milieu</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="vA3" name="vAlignInput" class="custom-control-input" value="align-self-end">
+                                            <label class="custom-control-label" for="vA3">Bas</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="borderGroup">
+                                        <h6 class="col-form-label">Bordure:</h6>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input disabled" id="borderInput">
+                                            <label class="custom-control-label" for="borderInput"> - La bordure</label>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="addElement">Send message</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" id="closeModalBtn"></button>
+                                <button type="button" class="btn btn-success" id="addElement"></button>
                             </div>
                         </div>
                     </div>

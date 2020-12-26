@@ -7,5 +7,6 @@
         "locale": "fr",
         "message-documentation": "qqq"
     },
-    "lang": "en"
+    "lang": "en",
+    "styling.form.title.add.text":"Add Text :"
 }
