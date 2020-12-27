@@ -26,11 +26,14 @@
         <div class="container-fluid p-0 m-0">
             <div class="row w-100 bg-dark p-0 m-0 d-flex justify-content-between align-items-center" style="height: 7vh" id="menu">
                 <div>
-                    <a href="#" class="btn btn-secondary border ml-4 mr-1 " id="text" data-toggle="modal" data-target="#modal" data-type="@text">
+                    <a href="#" class="btn btn-secondary border ml-4 mr-1 " id="text" data-toggle="modal" data-target="#modal" data-type="@text" title="Ajouter Text">
                         <img src="./img/icon/text.png" alt=""/>
                     </a>
                     <a href="#" class="btn btn-secondary border  mx-1" id="clock" data-toggle="modal" data-target="#modal" data-type="@clock">
                         <img src="./img/icon/clock.png" alt=""/>
+                    </a>
+                    <a href="#" class="btn btn-secondary border  mx-1" id="date" data-toggle="modal" data-target="#modal" data-type="@date">
+                        <img src="./img/icon/calendar.png" alt=""/>
                     </a>
                     <a href="#" class="btn btn-secondary border mx-1" id="image" data-toggle="modal" data-target="#modal" data-type="@image">
                         <img src="./img/icon/image.png" alt=""/>
@@ -46,11 +49,17 @@
                     </a>
                 </div>
                 <div class="">
-                    <a href="#" class="btn btn-secondary border  mx-1" id="save">
+                     <a href="#" class="btn btn-primary border  mx-1" id="preview">
+                        <img src="./img/icon/preview.png" alt=""/>
+                    </a>
+                    <a href="#" class="btn btn-success border  mx-1" id="save">
                         <img src="./img/icon/save.png" alt=""/>
                     </a>
-                    <a href="#" class="btn btn-secondary border  ml-1 mr-4" id="emptyScreen">
+                    <a href="#" class="btn btn-danger border  mx-1" id="emptyScreen">
                         <img src="./img/icon/empty.png" alt=""/>
+                    </a>
+                    <a href="#" class="btn btn-primary border  ml-4 mr-4" id="setting">
+                        <img src="./img/icon/setting.png" alt=""/>
                     </a>
                 </div>
             </div>
@@ -58,11 +67,11 @@
 
             </div>
             <div>
-                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                <div class="modal fade"  id="modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 600px">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="ModalLabel">New message</h5>
+                                <h5 class="modal-title" id="ModalLabel">---</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -81,23 +90,50 @@
                                         <label for="bgColorInput" class="col-form-label">Arrière plan:</label>
                                         <input type="color" class="form-control" id="bgColorInput"/>
                                     </div>
-                                    <div class="form-group" id="hAlignGroup">
-                                        <h6 class="col-form-label">Alignement horizontal:</h6>
+                                    <div class="form-group" id="sizeGroup">
+                                        <label for="sizeInput" class="col-form-label">Taille: <span class="badge badge-pill badge-primary" id="sizeInfo">16</span></label>
+                                        <input type="range" class="custom-range" min="1" max="200" step="0.5" id="sizeInput" value="16">
+                                    </div>
+                                    <div class="form-group" id="fontWeightGroup">
+                                        <h6 class="col-form-label font-weight-normal">Alignement horizontal:</h6>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id="hA1" name="hAlignInput" class="custom-control-input" value="left" checked="checked">
+                                            <input type="radio" id="fW1" name="fontWeightInput" class="custom-control-input" value="font-weight-lighter" checked="checked">
+                                            <label class="custom-control-label" for="fW1">Plus léger</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="fW2" name="fontWeightInput" class="custom-control-input" value="font-weight-light">
+                                            <label class="custom-control-label" for="fW2">Léger</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="fW3" name="fontWeightInput" class="custom-control-input" value="font-weight-normal">
+                                            <label class="custom-control-label" for="fW3">Normal</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="fW4" name="fontWeightInput" class="custom-control-input" value="font-weight-bold">
+                                            <label class="custom-control-label" for="fW4">Gras</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="fW5" name="fontWeightInput" class="custom-control-input" value="font-weight-bolder">
+                                            <label class="custom-control-label" for="fW5">Plus gras</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="hAlignGroup">
+                                        <h6 class="col-form-label font-weight-normal">Alignement horizontal:</h6>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="hA1" name="hAlignInput" class="custom-control-input" value="text-left" checked="checked">
                                             <label class="custom-control-label" for="hA1">Gauche</label>
                                         </div>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id="hA2" name="hAlignInput" class="custom-control-input" value="center">
+                                            <input type="radio" id="hA2" name="hAlignInput" class="custom-control-input" value="text-center">
                                             <label class="custom-control-label" for="hA2">Centre</label>
                                         </div>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id="hA3" name="hAlignInput" class="custom-control-input" value="right">
+                                            <input type="radio" id="hA3" name="hAlignInput" class="custom-control-input" value="text-right">
                                             <label class="custom-control-label" for="hA3">Droit</label>
                                         </div>
                                     </div>
                                     <div class="form-group" id="vAlignGroup">
-                                        <h6 class="col-form-label">Alignement vertical:</h6>
+                                        <h6 class="col-form-label font-weight-normal">Alignement vertical:</h6>
                                         <div class="custom-control custom-radio custom-control-inline">
                                             <input type="radio" id="vA1" name="vAlignInput" class="custom-control-input" value="align-self-start" checked="checked">
                                             <label class="custom-control-label" for="vA1">Haut</label>
@@ -112,9 +148,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group" id="borderGroup">
-                                        <h6 class="col-form-label">Bordure:</h6>
+                                        <h6 class="col-form-label font-weight-normal">Bordure:</h6>
                                         <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input disabled" id="borderInput">
+                                            <input type="checkbox" class="custom-control-input disabled" id="borderInput" value="border">
                                             <label class="custom-control-label" for="borderInput"> - La bordure</label>
                                         </div>
                                     </div>

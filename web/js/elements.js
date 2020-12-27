@@ -1,21 +1,25 @@
 let df_elements = {
     textObj: {
         id: "text01",
-        df_width: "300px",
-        df_height: "100px",
-        df_color: "white",
-        df_bg_color: "green",
-        df_html: "<h6 class='p-1 d-block w-100'>Text Demo</h6>",
-        df_script: "<script></script>"
+        dfWidth: "300px",
+        dfHeight: "100px",
+        dfColor: "white",
+        dfBgColor: "green",
+        size: '16',
+        border: '',
+        dfHtml: "<h6 class='p-1 d-block w-100'>Text Demo</h6>",
+        dfScript: "<script></script>"
     },
     clockObj: {
         id: "clock",
-        df_width: "300px",
-        df_height: "100px",
-        df_color: "white",
-        df_bg_color: "black",
-        df_html: "<h1 class='p-1 text-center w-100 clock'>00:00:00</h1>",
-        df_script: "<script></script>"
+        dfWidth: "300px",
+        dfHeight: "100px",
+        dfColor: "white",
+        dfBgColor: "black",
+        size: '16',
+        border: '',
+        dfHtml: "<h1 class='p-1 text-center w-100 clock'>00:00:00</h1>",
+        dfScript: "<script></script>"
     }
 };
 function getTextObj() {
@@ -26,42 +30,91 @@ function getClockObj() {
 }
 function addText() {
     let textObj = getTextObj();
-    textObj.id = Math.floor(Math.random() * 100);
-    textObj.df_color = $colorInput.val();
-    textObj.df_bg_color = $bgColorInput.val();
-    let textDOM = "<div class='resize-drag element row' "
+    textObj.id = Math.floor(Math.random() * 400);
+    textObj.dfColor = $colorInput.val();
+    textObj.dfBgColor = $bgColorInput.val();
+    textObj.size = $sizeInput.val();
+    if ($borderInput.prop("checked")) {
+        textObj.border = "border";
+    } else
+    {
+        textObj.border = "";
+    }
+    let textDOM = "<div class='resize-drag element row "
+            + textObj.border
+            + "' "
             + " id='" + textObj.id + "' "
             + " data-id='" + textObj.id + "'"
             + " data-type='@text'"
             + " data-x='0'"
             + " data-y='0' "
             + " style='"
-            + "color:" + textObj.df_color
-            + ";background-color:" + textObj.df_bg_color
-            + ";width:" + textObj.df_width
-            + ";height:" + textObj.df_height
+            + "color:" + textObj.dfColor
+            + ";background-color:" + textObj.dfBgColor
+            + ";width:" + textObj.dfWidth
+            + ";height:" + textObj.dfHeight
             + "'>"
             + "<h6 class='"
             + " p-1 "
             + " w-100 "
             + $($vAlignInput.filter(":checked")[0]).val()
+            + " "
+            + $($hAlignInput.filter(":checked")[0]).val()
+            + " "
+            + $($fontWeightInput.filter(":checked")[0]).val()
+            + " "
             + "' "
             + " style='"
-            + "text-align: " + $($hAlignInput.filter(":checked")[0]).val()
+            + "font-size:" + textObj.size + "px"
             + "'>" + $textInput.val() + "</h6>"
-            + textObj.df_script
+            + textObj.dfScript
             + "</div>"
             ;
     $screen.append(textDOM);
 }
-function addClock(to) {
+function addClock() {
     let clockObj = getClockObj();
-    let clockDOM = "<div class='resize-drag' data-id='" + clockObj.id + "' data-x='0' data-y='0' style='color:" + clockObj.df_color + ";background-color:" + clockObj.df_bg_color + ";width:" + clockObj.df_width + ";height:" + clockObj.df_height + "'>"
-            + clockObj.df_html
-            + clockObj.df_script
+    clockObj.id = Math.floor(Math.random() * 400);
+    clockObj.dfColor = $colorInput.val();
+    clockObj.dfBgColor = $bgColorInput.val();
+    clockObj.size = $sizeInput.val();
+    if ($borderInput.prop("checked")) {
+        clockObj.border = "border";
+    } else
+    {
+        clockObj.border = "";
+    }
+    let clockDOM = "<div class='resize-drag element row "
+            + clockObj.border
+            + "' "
+            + " id='" + clockObj.id + "' "
+            + " data-id='" + clockObj.id + "'"
+            + " data-type='@clock'"
+            + " data-x='0'"
+            + " data-y='0' "
+            + " style='"
+            + "color:" + clockObj.dfColor
+            + ";background-color:" + clockObj.dfBgColor
+            + ";width:" + clockObj.dfWidth
+            + ";height:" + clockObj.dfHeight
+            + "'>"
+            + "<h6 class='"
+            + " p-1 "
+            + " w-100 "
+            + " clock "
+            + $($vAlignInput.filter(":checked")[0]).val()
+            + " "
+            + $($hAlignInput.filter(":checked")[0]).val()
+            + " "
+            + $($fontWeightInput.filter(":checked")[0]).val()
+            + "' "
+            + " style='"
+            + "font-size:" + clockObj.size + "px"
+            + "'></h6>"
+            + clockObj.dfScript
             + "</div>"
             ;
-    to.append(clockDOM);
+    $screen.append(clockDOM);
 }
 function updateClock() {
     $('.clock').html(moment().format('HH:mm:ss'));
@@ -82,15 +135,18 @@ function saveScreen() {
             bgColor: $($elements[i]).css("background-color"),
             text: $($elements[i]).find("h6").html(),
             class: $($elements[i]).find("h6").attr("class"),
+            divClass: $($elements[i]).attr("class"),
+            x: $($elements[i]).attr('data-x'),
+            y: $($elements[i]).attr('data-y'),
             url: '',
-            size: '',
+            size: $($elements[i]).find("h6").css("font-size"),
             font: '',
-            fontWeight: ''
+            location: ''
         };
         toSave.push(element);
     }
     localStorage.setItem("elements", JSON.stringify(toSave));
-    console.log(toSave);
+    console.log("Saved " + toSave.length + " Elements");
 }
 
 setInterval(updateClock, 1000);

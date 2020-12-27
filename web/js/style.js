@@ -2,10 +2,10 @@
 let $screen;
 let $menu;
 let $modal;
-
 //buttons
 let $textBtn;
 let $clockBtn;
+let $dateBtn;
 let $imageBtn;
 let $videoBtn;
 let $weatherBtn;
@@ -16,7 +16,7 @@ let $closeModalBtn;
 let $addElementBtn;
 let $modalTitle;
 let $formGroups;
-
+let $previewBtn;
 //form div
 let $textGroup;
 let $colorGroup;
@@ -24,7 +24,9 @@ let $bgColorGroup;
 let $hAlignGroup;
 let $vAlignGroup;
 let $borderGroup;
-
+let $sizeGroup;
+let $sizeInfo;
+let $fontWeightGroup;
 //form input
 let $textInput;
 let $colorInput;
@@ -32,7 +34,8 @@ let $bgColorInput;
 let $hAlignInput;
 let $vAlignInput;
 let $borderInput;
-
+let $sizeInput;
+let $fontWeightInput;
 //global vars
 let $elements;
 let type;
@@ -44,6 +47,7 @@ let init = function () {
     //
     $textBtn = $("#text");
     $clockBtn = $("#clock");
+    $dateBtn = $("#date");
     $imageBtn = $("#image");
     $videoBtn = $("#video");
     $weatherBtn = $("#weather");
@@ -52,6 +56,7 @@ let init = function () {
     $emptyScreenBtn = $("#emptyScreen");
     $addElementBtn = $("#addElement");
     $closeModalBtn = $("#closeModalBtn");
+    $previewBtn = $("#preview");
     //
     $modal = $('#modal');
     //
@@ -63,7 +68,10 @@ let init = function () {
     $bgColorGroup = $("#bgColorGroup");
     $hAlignGroup = $("#hAlignGroup");
     $vAlignGroup = $("#vAlignGroup");
-    $borderGroup= $("#borderGroup");;
+    $borderGroup = $("#borderGroup");
+    $sizeGroup = $("#sizeGroup");
+    $sizeInfo = $("#sizeInfo");
+    $fontWeightGroup = $("#fontWeightGroup");
     //
     $textInput = $("#textInput");
     $colorInput = $("#colorInput");
@@ -71,6 +79,8 @@ let init = function () {
     $hAlignInput = $("input[name='hAlignInput']");
     $vAlignInput = $("input[name='vAlignInput']");
     $borderInput = $("#borderInput");
+    $sizeInput = $("#sizeInput");
+    $fontWeightInput = $("input[name='fontWeightInput']");
     //
     $.i18n().load({
         fr: './i18n/messages-fr.json',
@@ -93,13 +103,29 @@ let setModal = function (type) {
             $hAlignGroup.show();
             $vAlignGroup.show();
             $borderGroup.show();
+            $sizeGroup.show();
+            $fontWeightGroup.show();
             break;
+        case '@clock':
+            $modalTitle.html($.i18n("styling.form.title.add.clock"));
+            $colorGroup.show();
+            $bgColorGroup.show();
+            $hAlignGroup.show();
+            $vAlignGroup.show();
+            $borderGroup.show();
+            $sizeGroup.show();
+            $fontWeightGroup.show();
+            break;
+
     }
 };
 let addElement = function (type) {
     switch (type) {
         case '@text':
             addText();
+            break;
+        case '@clock':
+            addClock();
             break;
     }
 };
@@ -120,5 +146,11 @@ $(document).ready(function () {
     });
     $saveBtn.click(function () {
         saveScreen();
+    });
+    $previewBtn.click(function () {
+        window.open("./");
+    });
+    $sizeInput.on('change',function () {
+       $sizeInfo.html($(this).val()); 
     });
 });
