@@ -1,5 +1,6 @@
-function updateClock() {
+function updateTime() {
     $('.clock').html(moment().format('HH:mm:ss'));
+    $('.date').html(moment().format('DD-MM-YYYY'));
 }
 let loadElement = function (type, element) {
     switch (type) {

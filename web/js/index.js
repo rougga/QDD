@@ -7,5 +7,5 @@ function init() {
 $(document).ready(function () {
     init();
     loadScreen();
-    setInterval(updateClock, 1000);
+    setInterval(updateTime, 1000);
 });
