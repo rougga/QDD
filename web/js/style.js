@@ -27,6 +27,7 @@ let $borderGroup;
 let $sizeGroup;
 let $sizeInfo;
 let $fontWeightGroup;
+let $fileGroup;
 //form input
 let $textInput;
 let $colorInput;
@@ -36,6 +37,7 @@ let $vAlignInput;
 let $borderInput;
 let $sizeInput;
 let $fontWeightInput;
+let $fileInput;
 //global vars
 let $elements;
 let type;
@@ -72,6 +74,7 @@ let init = function () {
     $sizeGroup = $("#sizeGroup");
     $sizeInfo = $("#sizeInfo");
     $fontWeightGroup = $("#fontWeightGroup");
+    $fileGroup = $("#fileGroup");
     //
     $textInput = $("#textInput");
     $colorInput = $("#colorInput");
@@ -81,6 +84,7 @@ let init = function () {
     $borderInput = $("#borderInput");
     $sizeInput = $("#sizeInput");
     $fontWeightInput = $("input[name='fontWeightInput']");
+    $fileInput = $("#fileInput");
     //
     $.i18n().load({
         fr: './i18n/messages-fr.json',
@@ -116,6 +120,21 @@ let setModal = function (type) {
             $sizeGroup.show();
             $fontWeightGroup.show();
             break;
+        case '@date':
+            $modalTitle.html($.i18n("styling.form.title.add.date"));
+            $colorGroup.show();
+            $bgColorGroup.show();
+            $hAlignGroup.show();
+            $vAlignGroup.show();
+            $borderGroup.show();
+            $sizeGroup.show();
+            $fontWeightGroup.show();
+            break;
+        case '@image':
+            $modalTitle.html($.i18n("styling.form.title.add.image"));
+            $borderGroup.show();
+            $fileGroup.show();
+            break;
 
     }
 };
@@ -127,11 +146,16 @@ let addElement = function (type) {
         case '@clock':
             addClock();
             break;
+        case  '@date':
+            addDate();
+            break;
+        case '@image':
+            addImage();
+            break;
     }
 };
 $(document).ready(function () {
     init();
-
     $modal.on('show.bs.modal', function (event) {
         type = $(event.relatedTarget).data('type');
         setModal(type);
@@ -150,7 +174,7 @@ $(document).ready(function () {
     $previewBtn.click(function () {
         window.open("./");
     });
-    $sizeInput.on('change',function () {
-       $sizeInfo.html($(this).val()); 
+    $sizeInput.on('change', function () {
+        $sizeInfo.html($(this).val());
     });
 });

@@ -49,7 +49,7 @@
                     </a>
                 </div>
                 <div class="">
-                     <a href="#" class="btn btn-primary border  mx-1" id="preview">
+                    <a href="#" class="btn btn-primary border  mx-1" id="preview">
                         <img src="./img/icon/preview.png" alt=""/>
                     </a>
                     <a href="#" class="btn btn-success border  mx-1" id="save">
@@ -152,6 +152,13 @@
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input disabled" id="borderInput" value="border">
                                             <label class="custom-control-label" for="borderInput"> - La bordure</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="fileGroup">
+                                        <h6 class="col-form-label font-weight-normal">Fichier:</h6>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="fileInput">
+                                            <label class="custom-file-label" for="fileInput">Choose file</label>
                                         </div>
                                     </div>
                                 </form>

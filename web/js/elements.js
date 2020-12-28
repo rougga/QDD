@@ -20,6 +20,26 @@ let df_elements = {
         border: '',
         dfHtml: "<h1 class='p-1 text-center w-100 clock'>00:00:00</h1>",
         dfScript: "<script></script>"
+    },
+    dateObj: {
+        id: "date",
+        dfWidth: "300px",
+        dfHeight: "100px",
+        dfColor: "white",
+        dfBgColor: "black",
+        size: '16',
+        border: '',
+        dfHtml: "<h1 class='p-1 text-center w-100 date'>00:00:00</h1>",
+        dfScript: "<script></script>"
+    },
+    imageObj: {
+        id: "image",
+        dfWidth: "300px",
+        dfHeight: "300px",
+        border: '',
+        url: 'c:/QDD/img/df1.png',
+        dfHtml: "<img class='p-1  w-100 date'/>",
+        dfScript: "<script></script>"
     }
 };
 function getTextObj() {
@@ -27,6 +47,12 @@ function getTextObj() {
 }
 function getClockObj() {
     return df_elements.clockObj;
+}
+function getDateObj() {
+    return df_elements.dateObj;
+}
+function getImageObj() {
+    return df_elements.imageObj;
 }
 function addText() {
     let textObj = getTextObj();
@@ -116,8 +142,91 @@ function addClock() {
             ;
     $screen.append(clockDOM);
 }
-function updateClock() {
+function addDate() {
+    let dateObj = getDateObj();
+    dateObj.id = Math.floor(Math.random() * 400);
+    dateObj.dfColor = $colorInput.val();
+    dateObj.dfBgColor = $bgColorInput.val();
+    dateObj.size = $sizeInput.val();
+    if ($borderInput.prop("checked")) {
+        dateObj.border = "border";
+    } else
+    {
+        dateObj.border = "";
+    }
+    let clockDOM = "<div class='resize-drag element row "
+            + dateObj.border
+            + "' "
+            + " id='" + dateObj.id + "' "
+            + " data-id='" + dateObj.id + "'"
+            + " data-type='@date'"
+            + " data-x='0'"
+            + " data-y='0' "
+            + " style='"
+            + "color:" + dateObj.dfColor
+            + ";background-color:" + dateObj.dfBgColor
+            + ";width:" + dateObj.dfWidth
+            + ";height:" + dateObj.dfHeight
+            + "'>"
+            + "<h6 class='"
+            + " p-1 "
+            + " w-100 "
+            + " date "
+            + $($vAlignInput.filter(":checked")[0]).val()
+            + " "
+            + $($hAlignInput.filter(":checked")[0]).val()
+            + " "
+            + $($fontWeightInput.filter(":checked")[0]).val()
+            + "' "
+            + " style='"
+            + "font-size:" + dateObj.size + "px"
+            + "'></h6>"
+            + dateObj.dfScript
+            + "</div>"
+            ;
+    $screen.append(clockDOM);
+}
+
+function addImage() {
+    let imageObj = getImageObj();
+    imageObj.id = Math.floor(Math.random() * 400);
+
+    if ($borderInput.prop("checked")) {
+        imageObj.border = "border";
+    } else
+    {
+        imageObj.border = "";
+    }
+    let imageDOM = "<div class='resize-drag element row "
+            + imageObj.border
+            + "' "
+            + " id='" + imageObj.id + "' "
+            + " data-id='" + imageObj.id + "'"
+            + " data-type='@image'"
+            + " data-x='0'"
+            + " data-y='0' "
+            + " style='"
+            + ";width:" + imageObj.dfWidth
+            + ";height:" + imageObj.dfHeight
+            + "'>"
+            + "<img class='"
+            + " p-0 m-0"
+            + " w-100 "
+            + " h-100 "
+            + " image "
+            + "' "
+            + " src='" + imageObj.url + "'"
+            + " style='"
+            + "font-size:" + imageObj.size + "px"
+            + "'/>"
+            + imageObj.dfScript
+            + "</div>"
+            ;
+    $screen.append(imageDOM);
+}
+function updateTime() {
     $('.clock').html(moment().format('HH:mm:ss'));
+    $('.date').html(moment().format('DD-MM-YYYY'));
 }
 
 function saveScreen() {
@@ -134,11 +243,12 @@ function saveScreen() {
             color: $($elements[i]).css("color"),
             bgColor: $($elements[i]).css("background-color"),
             text: $($elements[i]).find("h6").html(),
-            class: $($elements[i]).find("h6").attr("class"),
+            class: $($elements[i]).find("h6").attr("class") || $($elements[i]).find("img").attr("class"),
             divClass: $($elements[i]).attr("class"),
             x: $($elements[i]).attr('data-x'),
             y: $($elements[i]).attr('data-y'),
-            url: '',
+            imageUrl: $($elements[i]).find("img").attr('src'),
+            videoUrl: '',
             size: $($elements[i]).find("h6").css("font-size"),
             font: '',
             location: ''
@@ -149,4 +259,4 @@ function saveScreen() {
     console.log("Saved " + toSave.length + " Elements");
 }
 
-setInterval(updateClock, 1000);
+setInterval(updateTime, 1000);

@@ -10,6 +10,7 @@
     "lang": "fr",
     "styling.form.title.add.text":"Ajouter Texte :",
     "styling.form.title.add.clock":"Ajouter l'horloge :",
+    "styling.form.title.add.date":"",
     "styling.form.add.element":"Ajouter",
     "styling.form.close":"Fermer"
 }

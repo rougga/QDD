@@ -10,6 +10,12 @@ let loadElement = function (type, element) {
         case '@clock':
             loadClock(element);
             break;
+        case '@date':
+            loadDate(element);
+            break;
+        case '@image':
+            loadImage(element);
+            break;
     }
 };
 function loadScreen() {
@@ -50,9 +56,9 @@ function loadText(element) {
     $screen.append(textDOM);
 }
 function loadClock(element) {
-    let textDOM = "<div class='"
+    let clockDOM = "<div class='"
             + element.divClass
-            +"' "
+            + "' "
             + " id='" + element.id + "' "
             + " data-id='" + element.id + "'"
             + " data-type='" + element.type + "'"
@@ -74,5 +80,58 @@ function loadClock(element) {
             + "</h6>"
             + "</div>"
             ;
-    $screen.append(textDOM);
+    $screen.append(clockDOM);
+}
+function loadDate(element) {
+    let dateDOM = "<div class='"
+            + element.divClass
+            + "' "
+            + " id='" + element.id + "' "
+            + " data-id='" + element.id + "'"
+            + " data-type='" + element.type + "'"
+            + " style='"
+            + "color:" + element.color
+            + ";background-color:" + element.bgColor
+            + ";width:" + element.width + "px"
+            + ";height:" + element.height + "px"
+            + ";position:absolute"
+            + ";top:" + element.top + "px"
+            + ";left:" + element.left + "px"
+            + "'>"
+            + "<h6 class='"
+            + element.class
+            + "' "
+            + " style='"
+            + "font-size:" + element.size
+            + "'>"
+            + "</h6>"
+            + "</div>"
+            ;
+    $screen.append(dateDOM);
+}
+function loadImage(element) {
+    let imageDOM = "<div class='"
+            + element.divClass
+            + "' "
+            + " id='" + element.id + "' "
+            + " data-id='" + element.id + "'"
+            + " data-type='" + element.type + "'"
+            + " style='"
+            + ";width:" + element.width + "px"
+            + ";height:" + element.height + "px"
+            + ";position:absolute"
+            + ";top:" + element.top + "px"
+            + ";left:" + element.left + "px"
+            + "'>"
+            + "<img class='"
+            + element.class
+            + "' "
+            + " src='"
+            + element.imageUrl
+            + "'"
+            + " style='"
+            + "'/>"
+            + "</div>"
+            ;
+    $screen.append(imageDOM);
 }
