@@ -138,22 +138,7 @@ let setModal = function (type) {
 
     }
 };
-let addElement = function (type) {
-    switch (type) {
-        case '@text':
-            addText();
-            break;
-        case '@clock':
-            addClock();
-            break;
-        case  '@date':
-            addDate();
-            break;
-        case '@image':
-            addImage();
-            break;
-    }
-};
+
 $(document).ready(function () {
     init();
     $modal.on('show.bs.modal', function (event) {

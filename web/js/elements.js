@@ -54,6 +54,22 @@ function getDateObj() {
 function getImageObj() {
     return df_elements.imageObj;
 }
+function addElement(type) {
+    switch (type) {
+        case '@text':
+            addText();
+            break;
+        case '@clock':
+            addClock();
+            break;
+        case  '@date':
+            addDate();
+            break;
+        case '@image':
+            addImage();
+            break;
+    }
+}
 function addText() {
     let textObj = getTextObj();
     textObj.id = Math.floor(Math.random() * 400);
@@ -186,7 +202,6 @@ function addDate() {
             ;
     $screen.append(clockDOM);
 }
-
 function addImage() {
     let imageObj = getImageObj();
     imageObj.id = Math.floor(Math.random() * 400);
@@ -224,6 +239,7 @@ function addImage() {
             ;
     $screen.append(imageDOM);
 }
+
 function updateTime() {
     $('.clock').html(moment().format('HH:mm:ss'));
     $('.date').html(moment().format('DD-MM-YYYY'));
