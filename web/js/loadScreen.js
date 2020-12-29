@@ -20,6 +20,7 @@ let loadElement = function (type, element) {
 };
 function loadScreen() {
     let elements = JSON.parse(localStorage.getItem("elements"));
+    console.log(elements);
     for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
         loadElement(element.type, element);
