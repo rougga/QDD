@@ -18,6 +18,7 @@ let $modalTitle;
 let $formGroups;
 let $previewBtn;
 //form div
+let $modalForm;
 let $textGroup;
 let $colorGroup;
 let $bgColorGroup;
@@ -28,6 +29,7 @@ let $sizeGroup;
 let $sizeInfo;
 let $fontWeightGroup;
 let $fileGroup;
+let $fileLabel;
 //form input
 let $textInput;
 let $colorInput;
@@ -64,6 +66,7 @@ let init = function () {
     //
     $modalTitle = $("#ModalLabel");
     //
+    $modalForm = $("#modalForm");
     $formGroups = $(".form-group");
     $textGroup = $("#textGroup");
     $colorGroup = $("#colorGroup");
@@ -75,6 +78,7 @@ let init = function () {
     $sizeInfo = $("#sizeInfo");
     $fontWeightGroup = $("#fontWeightGroup");
     $fileGroup = $("#fileGroup");
+    $fileLabel = $("#fileLabel");
     //
     $textInput = $("#textInput");
     $colorInput = $("#colorInput");
@@ -92,6 +96,15 @@ let init = function () {
         ar: './i18n/messages-ar.json'
     });
 };
+
+
+let config = function () {
+    let menuHeight = 60;
+    let screenHeight = $(document).height() - 60;
+    $menu.height(menuHeight);
+    $screen.height(screenHeight);
+};
+
 
 //getting modal ready
 let setModal = function (type) {
@@ -134,6 +147,9 @@ let setModal = function (type) {
             $modalTitle.html($.i18n("styling.form.title.add.image"));
             $borderGroup.show();
             $fileGroup.show();
+            $fileInput.attr("accept","image/*");
+            $modalForm.attr("method","POST");
+            $modalForm.attr("enctype","multipart/form-data");
             break;
 
     }
@@ -141,6 +157,7 @@ let setModal = function (type) {
 
 $(document).ready(function () {
     init();
+    config();
     $modal.on('show.bs.modal', function (event) {
         type = $(event.relatedTarget).data('type');
         setModal(type);
@@ -161,5 +178,11 @@ $(document).ready(function () {
     });
     $sizeInput.on('change', function () {
         $sizeInfo.html($(this).val());
+    });
+    $fileInput.on('change', function () {
+        $fileLabel.html($fileInput.val().substring($fileInput.val().lastIndexOf('\\') + 1, $fileInput.val().length));
+    });
+    $(window).on('resize',function () {
+        config();
     });
 });

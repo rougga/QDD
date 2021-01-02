@@ -37,9 +37,12 @@ let df_elements = {
         dfWidth: "300px",
         dfHeight: "300px",
         border: '',
-        url: 'c:/QDD/img/df1.png',
+        url: './img/upload/',
         dfHtml: "<img class='p-1  w-100 date'/>",
         dfScript: "<script></script>"
+    },
+    videoObj: {
+        
     }
 };
 function getTextObj() {
@@ -204,8 +207,10 @@ function addDate() {
 }
 function addImage() {
     let imageObj = getImageObj();
+    let filename = $fileInput.val().substring($fileInput.val().lastIndexOf('\\') + 1, $fileInput.val().length);
+    uploadImage(filename);
     imageObj.id = Math.floor(Math.random() * 400);
-
+    let url = imageObj.url + filename;
     if ($borderInput.prop("checked")) {
         imageObj.border = "border";
     } else
@@ -230,7 +235,7 @@ function addImage() {
             + " h-100 "
             + " image "
             + "' "
-            + " src='" + imageObj.url + "'"
+            + " src='" + url + "'"
             + " style='"
             + "font-size:" + imageObj.size + "px"
             + "'/>"
@@ -238,13 +243,36 @@ function addImage() {
             + "</div>"
             ;
     $screen.append(imageDOM);
-}
 
+}
+function addVideo() {
+    
+}
 function updateTime() {
     $('.clock').html(moment().format('HH:mm:ss'));
     $('.date').html(moment().format('DD-MM-YYYY'));
 }
-
+function uploadImage(filename) {
+    let formData = new FormData(document.getElementById("modalForm"));
+    let to = "./uploadImage";
+    let par = {};
+    par.file = $fileInput.val();
+    par.name = filename;
+    $.ajax({
+        url: to,
+        type: "POST",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function () {
+            console.log("image updated");
+        }
+    })
+}
+function uploadVideo() {
+    
+}
 function saveScreen() {
     $elements = $(".element");
     let toSave = [];

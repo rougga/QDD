@@ -77,7 +77,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form id="modalForm" >
                                     <div class="form-group" id="textGroup">
                                         <label for="textInput" class="col-form-label">Texte:</label>
                                         <input type="text" class="form-control" id="textInput">
@@ -155,11 +155,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group" id="fileGroup">
-                                        <h6 class="col-form-label font-weight-normal">Fichier:</h6>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="fileInput">
-                                            <label class="custom-file-label" for="fileInput">Choose file</label>
-                                        </div>
+                                            <h6 class="col-form-label font-weight-normal">Fichier:</h6>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="fileInput" accept="image/*" name="file">
+                                                <label class="custom-file-label" for="fileInput" id="fileLabel">Choose file</label>
+                                            </div>
+                                        
+
                                     </div>
                                 </form>
                             </div>

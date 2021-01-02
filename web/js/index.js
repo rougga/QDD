@@ -1,5 +1,4 @@
 let $screen;
-
 function init() {
     $screen = $("#screen");
 }
