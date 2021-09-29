@@ -24,7 +24,10 @@
     </head>
     <body>
         <div class="container-fluid p-0 m-0">
-            <div class="row w-100 bg-dark p-0 m-0 d-flex justify-content-between align-items-center" style="height: 7vh" id="menu">
+            <div class="row w-100 bg-dark p-0 m-0 d-flex justify-content-between align-items-center " style="height: 7vh">
+                <img />
+            </div>
+            <div class="row w-100 bg-dark p-0 m-0 d-flex justify-content-between align-items-center " style="height: 7vh" id="menu">
                 <div>
                     <a href="#" class="btn btn-secondary border ml-4 mr-1 " id="text" data-toggle="modal" data-target="#modal" data-type="@text" title="Ajouter Text">
                         <img src="./img/icon/text.png" alt=""/>
@@ -63,7 +66,7 @@
                     </a>
                 </div>
             </div>
-            <div class="w-100 bg-secondary p-0 m-0" style="height: 93vh" id="screen">
+            <div class="w-100 bg-secondary p-0 m-0" style="height: 100vh" id="screen">
 
             </div>
             <div>

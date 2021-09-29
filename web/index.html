@@ -8,17 +8,23 @@
         <link rel="icon" type="image/png" href="./img/favicon-32x32.png">
         <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script src="./js/lib/jquery.js"></script>
-        <script src="./js/lib/moment.min.js"></script>
         <script src="./js/lib/bootstrap.bundle.min.js"></script>
-        <script src="./js/index.js"></script>
-        <script src="./js/loadScreen.js"></script>
     </head>
     <body>
-        <div class="container-fluid p-0 m-0">
-            <a href="style.jsp" class=" float-left" id="stylingBtn"><img src="img/icon/setting-64.png" class="d-block mx-auto"/></a>       
-
-            <div class="w-100 vh-100 p-0 m-0 bg-dark" id="screen">
-
+        <div class=" w-100 vh-100 p-0 m-0 row align-items-center justify-content-center bg-dark">
+            <div class="w-50 h-50  bg-secondary rounded text-white">
+                <h1 class="h2 text-center pt-1 ">Choisir une affichage ou ajouter une nouvelle</h1>
+                <div class="screenOption">
+                    <div><img src="screen.png" alt=""/></div>
+                    <div><span class="h3">Ecran Centre</span></div>
+                    <div><img src="setting.png" alt=""/></div>
+                </div>
+                
+                <div class="plusOption">
+                    <div><img src="addScreen.png" alt=""/></div>
+                    <div><span class="h3">Ajouter écran</span></div>
+                    <div><img src="multiScreen.png" alt=""/></div>
+                </div>
             </div>
         </div>
     </body>
