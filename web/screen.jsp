@@ -20,4 +20,8 @@
             </div>
         </div>
     </body>
+    <script>
+        let id= "<%= request.getAttribute("screenId")%>";
+        
+    </script>
 </html>
