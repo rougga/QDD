@@ -24,49 +24,12 @@
     </head>
     <body>
         <div class="container-fluid p-0 m-0">
-            <div class="row w-100 bg-dark p-0 m-0 d-flex justify-content-between align-items-center " style="height: 7vh">
-                <img />
+            <div class="p-0 m-0 row justify-content-center align-items-center position-absolute " style="left: 44%">
+                <a href="#" class="py-3 px-5 bg-info" style="border-radius: 0 0 50% 50%; opacity: 0.6;"  data-toggle="modal" data-target="#addElementModal" data-type="@text" title="Ajouter Text">
+                    <img src="img/icon/list-32.png" />
+                </a>
             </div>
-            <div class="row w-100 bg-dark p-0 m-0 d-flex justify-content-between align-items-center " style="height: 7vh" id="menu">
-                <div>
-                    <a href="#" class="btn btn-secondary border ml-4 mr-1 " id="text" data-toggle="modal" data-target="#modal" data-type="@text" title="Ajouter Text">
-                        <img src="./img/icon/text.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-secondary border  mx-1" id="clock" data-toggle="modal" data-target="#modal" data-type="@clock">
-                        <img src="./img/icon/clock.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-secondary border  mx-1" id="date" data-toggle="modal" data-target="#modal" data-type="@date">
-                        <img src="./img/icon/calendar.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-secondary border mx-1" id="image" data-toggle="modal" data-target="#modal" data-type="@image">
-                        <img src="./img/icon/image.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-secondary border mx-1" id="video" data-toggle="modal" data-target="#modal" data-type="@video">
-                        <img src="./img/icon/video.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-secondary border mx-1" id="weather" data-toggle="modal" data-target="#modal" data-type="@weather">
-                        <img src="./img/icon/weather.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-secondary border mx-1" id="news" data-toggle="modal" data-target="#modal" data-type="@news">
-                        <img src="./img/icon/news.png" alt=""/>
-                    </a>
-                </div>
-                <div class="">
-                    <a href="#" class="btn btn-primary border  mx-1" id="preview">
-                        <img src="./img/icon/preview.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-success border  mx-1" id="save">
-                        <img src="./img/icon/save.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-danger border  mx-1" id="emptyScreen">
-                        <img src="./img/icon/empty.png" alt=""/>
-                    </a>
-                    <a href="#" class="btn btn-primary border  ml-4 mr-4" id="setting">
-                        <img src="./img/icon/setting.png" alt=""/>
-                    </a>
-                </div>
-            </div>
-            <div class="w-100 bg-secondary p-0 m-0" style="height: 100vh" id="screen">
+            <div class="w-100 bg-secondary p-0 m-0 vh-100" style="" id="screen">
 
             </div>
             <div>
@@ -158,12 +121,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group" id="fileGroup">
-                                            <h6 class="col-form-label font-weight-normal">Fichier:</h6>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="fileInput" accept="image/*" name="file">
-                                                <label class="custom-file-label" for="fileInput" id="fileLabel">Choose file</label>
-                                            </div>
-                                        
+                                        <h6 class="col-form-label font-weight-normal">Fichier:</h6>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="fileInput" accept="image/*" name="file">
+                                            <label class="custom-file-label" for="fileInput" id="fileLabel">Choose file</label>
+                                        </div>
+
 
                                     </div>
                                 </form>
@@ -175,7 +138,59 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade"  id="addElementModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="max-width: 600px">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center">Ajouter une element</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row p-2">
+                                    <a href="#" class="btn btn-success border  col-6 py-3" data-dismiss="modal"  id="save">
+                                        <img src="./img/icon/save.png" alt=""/>
+                                    </a>
+                                    <a href="#" class="btn btn-danger border  col-6 py-3" data-dismiss="modal" id="emptyScreen">
+                                        <img src="./img/icon/empty.png" alt=""/>
+                                    </a>
+                                    
+                                    <h1 class="w-100 text-center">------------------</h1>
+                                    
+                                    <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="text" data-dismiss="modal"  data-toggle="modal" data-target="#modal" data-type="@text" title="Ajouter Text">
+                                        <img src="./img/icon/text.png" alt=""/>
+                                    </a>
+                                    <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="clock"  data-dismiss="modal"  data-toggle="modal" data-target="#modal" data-type="@clock">
+                                        <img src="./img/icon/clock.png" alt=""/>
+                                    </a>
+                                    <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="date" data-dismiss="modal" data-toggle="modal" data-target="#modal" data-type="@date">
+                                        <img src="./img/icon/calendar.png" alt=""/>
+                                    </a>
+                                    <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="image" data-dismiss="modal" data-toggle="modal" data-target="#modal" data-type="@image">
+                                        <img src="./img/icon/image.png" alt=""/>
+                                    </a>
+                                    <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="video" data-dismiss="modal" data-toggle="modal" data-target="#modal" data-type="@video">
+                                        <img src="./img/icon/video.png" alt=""/>
+                                    </a>
+                                    <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="weather" data-dismiss="modal" data-toggle="modal" data-target="#modal" data-type="@weather">
+                                        <img src="./img/icon/weather.png" alt=""/>
+                                    </a>
+                                    <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="news" data-dismiss="modal" data-toggle="modal" data-target="#modal" data-type="@news">
+                                        <img src="./img/icon/news.png" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <script>
+            $(".elementBtn").click(function() {
+                $("#addElementModal").modal('toggle');
+            });
+        </script>
     </body>
 </html>
