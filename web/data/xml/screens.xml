@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-
 <screens>
     <screen>
-        <id></id>
-        <name></name>
-        <creationDate></creationDate>
+        <id>c8316096-e700-4634-bd40-75b616a38e72</id>
+        <name>TESTBT</name>
+        <creationDate>2021/10/13</creationDate>
+    </screen>
+    <screen>
+        <id>c8316096-e700-4634-bd40-75b616a38e72</id>
+        <name>TESTBT</name>
+        <creationDate>2021/10/13</creationDate>
+    </screen>
+    <screen>
+        <id>c8316096-e700-4634-bd40-75b616a38e72</id>
+        <name>TESTBT</name>
+        <creationDate>2021/10/13</creationDate>
     </screen>
 </screens>

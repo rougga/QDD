@@ -1,3 +1,7 @@
+<%@page import="main.controller.ScreenController"%>
+<%@page import="main.modal.Screen"%>
+<%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,16 +19,25 @@
             <div class="w-50 h-50  bg-secondary rounded text-white " id="screens">
                 <h1 class="h1 text-center pt-1 ">QDD</h1>
                 <h1 class="h2 text-center pt-1 ">Choisir une affichage ou ajouter une nouvelle</h1>
+                <%
+                    List<Screen> screens = new ScreenController().getAll(request);
+                    for(Screen s:screens){%>
+                        <div class="screenOption col-6 d-flex py-3 bg-dark rounded m-1 align-items-center justify-content-between">
+                            <div class="p-1"><a href="screen.jsp?id=<%=s.getId()%>" class=""><img src="img/icon/screen-32.png" alt=""/></a></div>
+                            <div class=""><a href="screen.jsp?id=<%=s.getId()%>" class=""><span class="h3"><%=s.getName() %></span></a></div>
+                            <div class="p-1 "><a href="style.jsp?id=<%=s.getId()%>" class="" target="_blank"><img src="img/icon/setting-32.png" alt=""/></a></div>
+                        </div>
+                    <%
+                        }
+                    %>
+                    
+                    
+                    
                 
-                <div class="screenOption col-6 d-flex py-3 bg-dark rounded m-1 align-items-center justify-content-between">
-                    <div class="p-1"><a href="screen.jsp?id=1" class=""><img src="img/icon/screen-32.png" alt=""/></a></div>
-                    <div class=""><a href="screen.jsp?id=1" class=""><span class="h3">E1-test</span></a></div>
-                    <div class="p-1 "><a href="style.jsp?id=1" class="" target="_blank"><img src="img/icon/setting-32.png" alt=""/></a></div>
-                </div>
 
                 <div class="plusOption col-6 d-flex py-3 bg-dark rounded m-1 align-items-center justify-content-between">
-                    <div class="p-1"><a href="" class="" data-toggle="modal" data-target="#addScreenModal"  title="Ajouter écran."><img src="img/icon/addScreen-32.png" alt=""/></a></div>
-                    <div><a href="" class="" data-toggle="modal" data-target="#addScreenModal"  title="Ajouter écran."><span class="h3">Ajouter écran</span></a></div>
+                    <div class="p-1"><a href="" class="" data-toggle="modal" data-target="#addScreenModal"  title="Ajouter Ã©cran."><img src="img/icon/addScreen-32.png" alt=""/></a></div>
+                    <div><a href="" class="" data-toggle="modal" data-target="#addScreenModal"  title="Ajouter Ã©cran."><span class="h3">Ajouter écran</span></a></div>
                     <div class="p-1"><a href="" class=""> <img src="img/icon/addScreen-32.png" alt=""/></a></div>
                 </div> 
             </div>
