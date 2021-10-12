@@ -4,9 +4,17 @@
         <servlet-name>uploadImage</servlet-name>
         <servlet-class>main.servlet.uploadImage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetScreens</servlet-name>
+        <servlet-class>main.api.GetScreens</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>uploadImage</servlet-name>
         <url-pattern>/uploadImage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetScreens</servlet-name>
+        <url-pattern>/getscreens</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

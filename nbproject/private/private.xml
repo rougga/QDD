@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/ProjectsCurrent/NST/QDD/src/java/main/modal/Screen.java</file>
             <file>file:/D:/ProjectsCurrent/NST/QDD/web/style.jsp</file>
             <file>file:/D:/ProjectsCurrent/NST/QDD/web/screen.jsp</file>
             <file>file:/D:/ProjectsCurrent/NST/QDD/web/index.html</file>
+            <file>file:/D:/ProjectsCurrent/NST/QDD/src/java/main/controller/ScreenController.java</file>
+            <file>file:/D:/ProjectsCurrent/NST/QDD/src/java/main/api/GetScreens.java</file>
+            <file>file:/D:/ProjectsCurrent/NST/QDD/src/java/main/CONFIG.java</file>
+            <file>file:/D:/ProjectsCurrent/NST/QDD/web/data/xml/screens.xml</file>
         </group>
     </open-files>
 </project-private>
