@@ -18,7 +18,7 @@ public class AddScreen extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         System.err.println("name" + req.getAttribute("name"));
         Screen s = new Screen(req.getParameter("name"),CONFIG.sdf.format(new Date()));
-        new ScreenController().addScreen(s, req);
+        new ScreenController().addScreen(req,s);
     }
     
   

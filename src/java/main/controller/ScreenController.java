@@ -51,7 +51,7 @@ public class ScreenController {
         return screens;
     }
 
-    public boolean addScreen(Screen s,ServletRequest request) {
+    public boolean addScreen(ServletRequest request, Screen s) {
         try {
             String path = request.getServletContext().getRealPath(CONFIG.FILE_SCREENS);
             Document doc = new XMLController().getXml(path);
@@ -69,9 +69,8 @@ public class ScreenController {
             screen.appendChild(nameE);
 
             Element creationDateE = doc.createElement("creationDate");
-            creationDateE .appendChild(doc.createTextNode(s.getCreationDate()));
-            screen.appendChild(creationDateE );
-
+            creationDateE.appendChild(doc.createTextNode(s.getCreationDate()));
+            screen.appendChild(creationDateE);
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
@@ -81,13 +80,22 @@ public class ScreenController {
             return true;
 
         } catch (IOException | ParserConfigurationException | DOMException | SAXException | TransformerException e) {
-           return false;
+            return false;
         }
     }
 
-    public boolean removeScreen(UUID id) {
+    public boolean removeScreen(ServletRequest request, UUID id) {
 
         return false;
     }
 
+    public String getScreenContent(ServletRequest request, UUID id) {
+        
+        return null;
+    }
+
+    public boolean saveScreenContent(ServletRequest request, UUID id, String data) {
+
+        return false;
+    }
 }
