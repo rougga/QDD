@@ -191,6 +191,8 @@
             $(".elementBtn").click(function() {
                 $("#addElementModal").modal('toggle');
             });
+            let screenId = "<%=request.getParameter("id")%>";
+            console.log(screenId);
         </script>
     </body>
 </html>

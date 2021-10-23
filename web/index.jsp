@@ -1,3 +1,4 @@
+<%@page import="main.CONFIG"%>
 <%@page import="main.controller.ScreenController"%>
 <%@page import="main.modal.Screen"%>
 <%@page import="java.util.List"%>
@@ -15,14 +16,15 @@
         <script src="./js/lib/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-        <div class=" w-100 vh-100 p-0 m-0 row align-items-center justify-content-center bg-dark">
-            <div class="w-50 h-50  bg-secondary rounded text-white " id="screens">
+        <div class=" w-100 p-0 m-0 row align-items-center justify-content-center bg-dark" style="min-height: 100vh">
+            <div class="w-50  bg-secondary rounded text-white " id="screens" style="min-height: 50vh">
                 <h1 class="h1 text-center pt-1 ">QDD</h1>
                 <h1 class="h2 text-center pt-1 ">Choisir une affichage ou ajouter une nouvelle</h1>
+                <div class="">
                 <%
                     List<Screen> screens = new ScreenController().getAll(request);
                     for(Screen s:screens){%>
-                        <div class="screenOption col-6 d-flex py-3 bg-dark rounded m-1 align-items-center justify-content-between">
+                        <div class="screenOption  d-flex py-3 bg-dark rounded m-1 align-items-center justify-content-between">
                             <div class="p-1"><a href="screen.jsp?id=<%=s.getId()%>" class=""><img src="img/icon/screen-32.png" alt=""/></a></div>
                             <div class=""><a href="screen.jsp?id=<%=s.getId()%>" class=""><span class="h3"><%=s.getName() %></span></a></div>
                             <div class="p-1 "><a href="style.jsp?id=<%=s.getId()%>" class="" target="_blank"><img src="img/icon/setting-32.png" alt=""/></a></div>
@@ -35,11 +37,12 @@
                     
                 
 
-                <div class="plusOption col-6 d-flex py-3 bg-dark rounded m-1 align-items-center justify-content-between">
+                <div class="plusOption col-10  d-flex py-3 bg-dark rounded mx-auto my-1 align-items-center justify-content-between">
                     <div class="p-1"><a href="" class="" data-toggle="modal" data-target="#addScreenModal"  title="Ajouter Ã©cran."><img src="img/icon/addScreen-32.png" alt=""/></a></div>
                     <div><a href="" class="" data-toggle="modal" data-target="#addScreenModal"  title="Ajouter Ã©cran."><span class="h3">Ajouter écran</span></a></div>
                     <div class="p-1"><a href="" class=""> <img src="img/icon/addScreen-32.png" alt=""/></a></div>
                 </div> 
+                    </div>
             </div>
         </div>
         <div>
@@ -56,7 +59,7 @@
                             <form  >
                                 <div class="form-group" id="textGroup">
                                     <label for="textInput" class="col-form-label">Nom:</label>
-                                    <input type="text" class="form-control border-dark" id="textInput">
+                                    <input type="text" class="form-control border-dark" id="textInput" required>
                                 </div>
                             </form>
                         </div>
@@ -72,10 +75,11 @@
             $(document).ready(function() {
                 $("#mdlAddScreenBtn").click(function() {
                  //$("#addScreenModal").modal('toggle');
-                 $.post("addScreen",{name:$("#textInput").val().trim()}, function(statusText) {
+                 $.post("addScreen",{"name":$("#textInput").val().trim()}, function(statusText) {
                      console.log(statusText);
+                     window.location= "<%= CONFIG.PAGE_HOME%>";
                  });
-                 window.location= "index.html";
+                 
                 });
             });
         </script>

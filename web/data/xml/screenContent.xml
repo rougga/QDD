@@ -2,8 +2,24 @@
 
 <screens>
     <screen id="">
-        <element type="@text">
-            
+        <element id="">
+            <type></type>
+            <top></top>
+            <left></left>
+            <width></width>
+            <height></height>
+            <color></color>
+            <bgColor></bgColor>
+            <text></text>
+            <class></class>
+            <divClass></divClass>
+            <x></x>
+            <y></y>
+            <imageUrl></imageUrl>
+            <videoUrl></videoUrl>
+            <size></size>
+            <font></font>
+            <location></location>
         </element>
     </screen>
 </screens>

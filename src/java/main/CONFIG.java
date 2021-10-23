@@ -1,5 +1,7 @@
 package main;
 
+import java.text.SimpleDateFormat;
+
 public class CONFIG {
 
     //MetaData
@@ -8,10 +10,13 @@ public class CONFIG {
     public static final String APP_COMPANY = "ROUGGA";
     public static final String APP_CLIENT = "NST";
     //Data files
-    public static final String FILE_SCREENS = "\\data\\xml\\screens.xml";
+    public static final String FILE_SCREENS = "/data/xml/screens.xml";
     //Pages
-    public static final String PAGE_HOME = "/QDD/index.html";
+    public static final String PAGE_HOME = "/QDD/index.jsp";
     public static final String PAGE_STYLE = "/QDD/style.jsp";
     public static final String PAGE_SCREEN = "/QDD/screen.jsp";
-
+    
+    //date format
+    public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    
 }

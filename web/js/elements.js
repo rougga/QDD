@@ -299,7 +299,14 @@ function saveScreen() {
         };
         toSave.push(element);
     }
+    //local caxhe
     localStorage.setItem("elements", JSON.stringify(toSave));
+    //saving fto xml
+    $.post()("saveScreen",{screenId:screenId,data:toSave},function success(text) {
+        
+        //GUI alert
+        console.log("saved to xml !0");
+    });
     console.log("Saved " + toSave.length + " Elements");
 }
 

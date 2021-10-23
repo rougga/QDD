@@ -51,55 +51,38 @@ public class ScreenController {
         return screens;
     }
 
-    public boolean addScreen(Screen s) {
+    public boolean addScreen(Screen s,ServletRequest request) {
         try {
-            
-            String path = "";
+            String path = request.getServletContext().getRealPath(CONFIG.FILE_SCREENS);
             Document doc = new XMLController().getXml(path);
             Node cibles = doc.getFirstChild();
 
-            Element service = doc.createElement("service");
-            cibles.appendChild(service);
+            Element screen = doc.createElement("screen");
+            cibles.appendChild(screen);
 
             Element idE = doc.createElement("id");
-            idE.appendChild(doc.createTextNode(id));
-            service.appendChild(idE);
+            idE.appendChild(doc.createTextNode(s.getId().toString()));
+            screen.appendChild(idE);
 
             Element nameE = doc.createElement("name");
-            ResultSet r = new PgConnection().getStatement().executeQuery("SELECT name FROM t_biz_type where id ='" + id + "';");
-            if (r.next()) {
+            nameE.appendChild(doc.createTextNode(s.getName()));
+            screen.appendChild(nameE);
 
-                nameE.appendChild(doc.createTextNode(r.getString("name")));
+            Element creationDateE = doc.createElement("creationDate");
+            creationDateE .appendChild(doc.createTextNode(s.getCreationDate()));
+            screen.appendChild(creationDateE );
 
-            } else {
-                nameE.appendChild(doc.createTextNode("ERREUR"));
-            }
-            service.appendChild(nameE);
-
-            Element cibleAE = doc.createElement("cibleA");
-            cibleAE.appendChild(doc.createTextNode(cibleA + ""));
-            service.appendChild(cibleAE);
-
-            Element cibleTE = doc.createElement("cibleT");
-            cibleTE.appendChild(doc.createTextNode(cibleT + ""));
-            service.appendChild(cibleTE);
-
-            Element cibleDE = doc.createElement("dcible");
-            cibleDE.appendChild(doc.createTextNode(cibleD + ""));
-            service.appendChild(cibleDE);
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(new File(path));
             transformer.transform(source, result);
-            response.sendRedirect("./settings.jsp?err=Cible%20ajoute.");
+            return true;
 
-        } catch (IOException | ClassNotFoundException | SQLException | ParserConfigurationException | DOMException | SAXException | TransformerException e) {
-            response.sendRedirect("./settings.jsp?err=" + URLEncoder.encode(e.getMessage(), "UTF-8"));
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException | TransformerException e) {
+           return false;
         }
-
-        return false;
     }
 
     public boolean removeScreen(UUID id) {
