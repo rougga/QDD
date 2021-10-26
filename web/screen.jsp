@@ -22,7 +22,11 @@
         </div>
     </body>
     <script>
-        let id= "<%= request.getAttribute("screenId")%>";
-        
+        let id = "<%= request.getParameter("id")%>";
+        $(document).ready(function () {
+            $.get("loadscreen", {id: id}, function success(data, textStatus) {
+                loadScreen(data);
+            });
+        });
     </script>
 </html>

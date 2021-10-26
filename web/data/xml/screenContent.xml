@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <screens>
-    <screen id="">
+    <screen id="c8316096-e700-4634-bd40-75b616a38e72">
+       [
+    {
+        "type": "@text",
+        "id": "5",
+        "top": 173,
+        "left": 418,
+        "width": 544,
+        "height": 268,
+        "color": "rgb(255, 255, 255)",
+        "bgColor": "rgb(0, 0, 0)",
+        "text": "dd",
+        "class": " p-1  w-100 align-self-center text-center font-weight-normal ",
+        "divClass": "resize-drag element row ",
+        "x": "433",
+        "y": "173",
+        "videoUrl": "",
+        "size": "45px",
+        "font": "",
+        "location": ""
+    }]
+    </screen>
+</screens>
+<!--
+<screen id="">
         <element id="">
             <type></type>
             <top></top>
@@ -22,4 +46,6 @@
             <location></location>
         </element>
     </screen>
-</screens>
+
+
+-->

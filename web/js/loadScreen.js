@@ -18,8 +18,9 @@ let loadElement = function (type, element) {
             break;
     }
 };
-function loadScreen() {
-    let elements = JSON.parse(localStorage.getItem("elements"));
+function loadScreen(elms) {
+    //let elements = JSON.parse(localStorage.getItem("elements"));
+    let elements = JSON.parse(elms);
     console.log(elements);
     for (let i = 0; i < elements.length; i++) {
         let element = elements[i];

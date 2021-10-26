@@ -5,6 +5,6 @@ function init() {
 
 $(document).ready(function () {
     init();
-    loadScreen();
+    //loadScreen();
     setInterval(updateTime, 1000);
 });

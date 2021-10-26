@@ -42,7 +42,7 @@ let df_elements = {
         dfScript: "<script></script>"
     },
     videoObj: {
-        
+
     }
 };
 function getTextObj() {
@@ -246,7 +246,7 @@ function addImage() {
 
 }
 function addVideo() {
-    
+
 }
 function updateTime() {
     $('.clock').html(moment().format('HH:mm:ss'));
@@ -268,10 +268,10 @@ function uploadImage(filename) {
         success: function () {
             console.log("image updated");
         }
-    })
+    });
 }
 function uploadVideo() {
-    
+
 }
 function saveScreen() {
     $elements = $(".element");
@@ -300,13 +300,12 @@ function saveScreen() {
         toSave.push(element);
     }
     //local caxhe
-    localStorage.setItem("elements", JSON.stringify(toSave));
+    //localStorage.setItem("elements", JSON.stringify(toSave));
     //saving fto xml
-    $.post()("saveScreen",{screenId:screenId,data:toSave},function success(text) {
-        
-        //GUI alert
-        console.log("saved to xml !0");
+    $.get("savescreen", {id: screenId, data: JSON.stringify(toSave)}, function success(data) {
+        console.log("Saved to XML");
     });
+
     console.log("Saved " + toSave.length + " Elements");
 }
 
