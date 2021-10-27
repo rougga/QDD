@@ -20,6 +20,10 @@
         <servlet-name>LoadScreen</servlet-name>
         <servlet-class>main.api.LoadScreen</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoveScreen</servlet-name>
+        <servlet-class>main.api.RemoveScreen</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>uploadImage</servlet-name>
         <url-pattern>/uploadImage</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>LoadScreen</servlet-name>
         <url-pattern>/loadscreen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveScreen</servlet-name>
+        <url-pattern>/removescreen</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -86,8 +86,34 @@ public class ScreenController {
     }
 
     public boolean removeScreen(ServletRequest request, UUID id) {
+        try {
+            String path = request.getServletContext().getRealPath(CONFIG.FILE_SCREENS);
+            Document doc = new XMLController().getXml(path);
+            Node cibles = doc.getFirstChild();
+            NodeList nList = cibles.getChildNodes();
+            
+            for (int i = 0; i < nList.getLength(); i++) {
+                Node nNode = nList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    if (StringUtils.equals(eElement.getElementsByTagName("id").item(0).getTextContent(), id.toString())) {
+                        cibles.removeChild(nNode);
+                        removeScreenContent(request, id);
+                    }
+                }
+            }
+            
+            
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File(path));
+            transformer.transform(source, result);
+            return true;
 
-        return false;
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException | TransformerException e) {
+            return false;
+        }
     }
 
     public String getScreenContent(ServletRequest request, UUID id) {
@@ -101,12 +127,23 @@ public class ScreenController {
             Document doc = new XMLController().getXml(path);
             Node cibles = doc.getFirstChild();
 
+            NodeList nList = cibles.getChildNodes();
+            for (int i = 0; i < nList.getLength(); i++) {
+                Node nNode = nList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    if (StringUtils.equals(eElement.getAttribute("id"), id.toString())) {
+                        cibles.removeChild(nNode);
+                    }
+                }
+
+            }
+            
             Element screen = doc.createElement("screen");
             screen.setAttribute("id", id.toString());
             screen.appendChild(doc.createTextNode(data));
-            
+
             cibles.appendChild(screen);
-            
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
@@ -121,7 +158,7 @@ public class ScreenController {
     }
 
     public String loadScreenContent(ServletRequest request, UUID id) throws ParserConfigurationException, SAXException, IOException {
-        
+
         Document doc = new XMLController().getXml(request.getServletContext().getRealPath(CONFIG.FILE_SCREENCONTENT));
         Node cibles = doc.getFirstChild();
         NodeList nList = cibles.getChildNodes();
@@ -130,12 +167,42 @@ public class ScreenController {
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
                 if (StringUtils.equals(eElement.getAttribute("id"), id.toString())) {
-                    System.out.println("loadScreenContent");
                     return eElement.getTextContent();
                 }
             }
 
         }
         return null;
+    }
+
+    public boolean removeScreenContent(ServletRequest request, UUID id){
+        try {
+            String path = request.getServletContext().getRealPath(CONFIG.FILE_SCREENCONTENT);
+            Document doc = new XMLController().getXml(path);
+            Node cibles = doc.getFirstChild();
+
+            NodeList nList = cibles.getChildNodes();
+            for (int i = 0; i < nList.getLength(); i++) {
+                Node nNode = nList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    if (StringUtils.equals(eElement.getAttribute("id"), id.toString())) {
+                        cibles.removeChild(nNode);
+                    }
+                }
+
+            }
+            
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File(path));
+            transformer.transform(source, result);
+            return true;
+
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException | TransformerException e) {
+            return false;
+        }
+        
     }
 }
