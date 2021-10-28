@@ -21,6 +21,7 @@
         <script src="./js/style.js"></script>
         <script src="./js/interact.js"></script>
         <script src="./js/elements.js"></script>
+        <script src="./js/loadEditableScreen.js"></script>
     </head>
     <body>
         <div class="container-fluid p-0 m-0">
@@ -156,9 +157,9 @@
                                     <a href="#" class="btn btn-danger border  col-6 py-3" data-dismiss="modal" id="emptyScreen">
                                         <img src="./img/icon/empty.png" alt=""/>
                                     </a>
-                                    
+
                                     <h1 class="w-100 text-center">------------------</h1>
-                                    
+
                                     <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="text" data-dismiss="modal"  data-toggle="modal" data-target="#modal" data-type="@text" title="Ajouter Text">
                                         <img src="./img/icon/text.png" alt=""/>
                                     </a>
@@ -188,11 +189,15 @@
             </div>
         </div>
         <script>
-            $(".elementBtn").click(function() {
+            $(".elementBtn").click(function () {
                 $("#addElementModal").modal('toggle');
             });
-            let screenId = "<%=request.getParameter("id")%>";
-            console.log(screenId);
+            let id = screenId = "<%= request.getParameter("id")%>";
+            $(document).ready(function () {
+                $.get("loadscreen", {id: id}, function success(data, textStatus) {
+                    loadEditableScreen(data);
+                });
+            });
         </script>
     </body>
 </html>

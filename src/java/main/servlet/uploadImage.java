@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import main.CONFIG;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -17,7 +18,7 @@ public class uploadImage extends HttpServlet {
         File file;
         int maxFileSize = 5000 * 1024;
         int maxMemSize = 5000 * 1024;
-        String filePath = request.getServletContext().getRealPath("/img/upload/");
+        String filePath = request.getServletContext().getRealPath(CONFIG.FOLDER_IMAGEUPLOAD);
 
         String contentType = request.getContentType();
         if ((contentType.indexOf("multipart/form-data") >= 0)) {
