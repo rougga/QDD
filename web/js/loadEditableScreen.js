@@ -21,6 +21,7 @@ let loadElement = function (type, element) {
             break;
     }
 };
+///
 function loadText(elm) {
     let textDOM = "<div class='"
             + elm.divClass
