@@ -71,6 +71,21 @@ function addElement(type) {
         case '@image':
             addImage();
             break;
+        case '@video':
+            addVideo();
+            break;
+        case '@weather':
+            addWeather();
+            break;
+        case '@news':
+            addNews();
+            break;
+        case '@rollingText':
+            addRollingText();
+            break;
+        case '@app1':
+            addApp1();
+            break;
     }
 }
 function addText() {
@@ -246,6 +261,18 @@ function addImage() {
 
 }
 function addVideo() {
+
+}
+function addWeather() {
+
+}
+function addNews() {
+
+}
+function addRollingText() {
+
+}
+function addApp1() {
 
 }
 function updateTime() {
