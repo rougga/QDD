@@ -24,7 +24,7 @@
         <script src="./js/loadEditableScreen.js"></script>
     </head>
     <body>
-        <div class="container-fluid p-0 m-0">
+        <div class="container-fluid p-0 m-0" style="overflow: hidden">
             <div class="p-0 m-0 row justify-content-center align-items-center position-absolute " style="left: 44%">
                 <a href="#" class="py-3 px-5 bg-info" style="border-radius: 0 0 50% 50%; opacity: 0.6;"  data-toggle="modal" data-target="#addElementModal" data-type="@text" title="Ajouter Text">
                     <img src="img/icon/list-32.png" />
