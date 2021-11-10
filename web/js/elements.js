@@ -42,7 +42,37 @@ let df_elements = {
         dfScript: "<script></script>"
     },
     videoObj: {
+        id: "video",
+        dfWidth: "300px",
+        dfHeight: "300px",
+        border: '',
+        url: './vid/upload/',
+        dfHtml: "<video></video>",
+        dfScript: "<script></script>"
 
+    },
+    weatherObj:{
+        id: "weather",
+        dfWidth: "300px",
+        dfHeight: "300px",
+        dfColor: "white",
+        dfBgColor: "black",
+        size: '16',
+        border: '',
+        location: 'Rabat,Maroc',
+        dfHtml: "",
+        dfScript: "<script></script>"
+    },
+    rollingTextObj: {
+        id: "rollingText",
+        dfWidth: "900px",
+        dfHeight: "30px",
+        dfColor: "white",
+        dfBgColor: "red",
+        size: '16',
+        border: '',
+        dfHtml: "<h6 class='p-1 d-block w-100'>Text Demo</h6>",
+        dfScript: "<script></script>"
     }
 };
 function getTextObj() {
@@ -56,6 +86,15 @@ function getDateObj() {
 }
 function getImageObj() {
     return df_elements.imageObj;
+}
+function getVideoObj() {
+    return df_elements.videoObj;
+}
+function getWeatherObj() {
+    return df_elements.weatherObj;
+}
+function getRollingTextObj() {
+    return df_elements.rollingTextObj;
 }
 function addElement(type) {
     switch (type) {
@@ -261,7 +300,43 @@ function addImage() {
 
 }
 function addVideo() {
-
+let videoObj = getVideoObj()();
+    let filename = $fileInput.val().substring($fileInput.val().lastIndexOf('\\') + 1, $fileInput.val().length);
+    videoObj(filename);
+    videoObj.id = Math.floor(Math.random() * 400);
+    let url = videoObj.url + filename;
+    if ($borderInput.prop("checked")) {
+        videoObj.border = "border";
+    } else
+    {
+        videoObj.border = "";
+    }
+    let videoDOM = "<div class='resize-drag element row "
+            + videoObj.border
+            + "' "
+            + " id='" + videoObj.id + "' "
+            + " data-id='" + videoObj.id + "'"
+            + " data-type='@image'"
+            + " data-x='0'"
+            + " data-y='0' "
+            + " style='"
+            + ";width:" + videoObj.dfWidth
+            + ";height:" + videoObj.dfHeight
+            + "'>"
+            + "<img class='"
+            + " p-0 m-0"
+            + " w-100 "
+            + " h-100 "
+            + " image "
+            + "' "
+            + " src='" + url + "'"
+            + " style='"
+            + "font-size:" + videoObj.size + "px"
+            + "'/>"
+            + videoObj.dfScript
+            + "</div>"
+            ;
+    $screen.append(videoDOM);
 }
 function addWeather() {
 
@@ -298,7 +373,22 @@ function uploadImage(filename) {
     });
 }
 function uploadVideo() {
-
+let formData = new FormData(document.getElementById("modalForm"));
+    let to = "./uploadVideo";
+    let par = {};
+    par.file = $fileInput.val();
+    par.name = filename;
+    $.ajax({
+        url: to,
+        type: "POST",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function () {
+            console.log("video updated");
+        }
+    });
 }
 function saveScreen() {
     $elements = $(".element");
