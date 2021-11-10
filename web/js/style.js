@@ -78,6 +78,7 @@ let init = function () {
     $sizeInfo = $("#sizeInfo");
     $fontWeightGroup = $("#fontWeightGroup");
     $fileGroup = $("#fileGroup");
+    $locationGroup = $("#locationGroup");
     $fileLabel = $("#fileLabel");
     //
     $textInput = $("#textInput");
@@ -147,11 +148,32 @@ let setModal = function (type) {
             $modalTitle.html($.i18n("styling.form.title.add.image"));
             $borderGroup.show();
             $fileGroup.show();
-            $fileInput.attr("accept","image/*");
-            $modalForm.attr("method","POST");
-            $modalForm.attr("enctype","multipart/form-data");
+            $fileInput.attr("accept", "image/*");
+            $modalForm.attr("method", "POST");
+            $modalForm.attr("enctype", "multipart/form-data");
             break;
+        case '@video':
+            $modalTitle.html($.i18n("styling.form.title.add.video"));
+            $borderGroup.show();
+            $fileGroup.show();
+            $fileInput.attr("accept", "video/*");
+            $modalForm.attr("method", "POST");
+            $modalForm.attr("enctype", "multipart/form-data");
+            break;
+        case '@weather':
+            $modalTitle.html($.i18n("styling.form.title.add.weather"));
 
+
+            $locationGroup.show();
+            break;
+        case '@news':
+            break;
+        case '@rollingText':
+            break;
+        case 'app1':
+            $modalTitle.html($.i18n("styling.form.title.add.app1"));
+
+            break;
     }
 };
 
@@ -173,16 +195,17 @@ $(document).ready(function () {
     $saveBtn.click(function () {
         saveScreen();
     });
-    $previewBtn.click(function () {
+    /*$previewBtn.click(function () {
         window.open("./");
     });
+    */
     $sizeInput.on('change', function () {
         $sizeInfo.html($(this).val());
     });
     $fileInput.on('change', function () {
         $fileLabel.html($fileInput.val().substring($fileInput.val().lastIndexOf('\\') + 1, $fileInput.val().length));
     });
-    $(window).on('resize',function () {
+    $(window).on('resize', function () {
         config();
     });
 });

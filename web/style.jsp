@@ -130,6 +130,35 @@
 
 
                                     </div>
+                                    <div class="form-group" id="locationGroup">
+                                        <label for="ville">Ville:</label>
+                                        <select class="form-control" id="ville">
+                                            <option selected disabled value="0">Sélectionnez une ville</option>
+                                            <option value="Casablanca,Morocco">Casablanca</option>
+                                            <option value="Agadir,Morocco">Agadir</option>
+                                            <option value="Al Hoceima,Morocco">Al Hoceima</option>
+                                            <option value="Béni Mellal,Morocco">Béni Mellal</option>
+                                            <option value="El Jadida,Morocco">El Jadida</option>
+                                            <option value="Errachidia,Morocco">Errachidia</option>
+                                            <option value="Fès,Morocco">Fès</option>
+                                            <option value="Kénitra,Morocco">Kénitra</option>
+                                            <option value="Khénifra,Morocco">Khénifra</option>
+                                            <option value="Khouribga,Morocco">Khouribga</option>
+                                            <option value="Larache,Morocco">Larache</option>
+                                            <option value="Marrakech,Morocco">Marrakech</option>
+                                            <option value="Meknès,Morocco">Meknès</option>
+                                            <option value="Nador,Morocco">Nador</option>
+                                            <option value="Ouarzazate,Morocco">Ouarzazate</option>
+                                            <option value="Oujda,Morocco">Oujda</option>
+                                            <option value="Rabat,Morocco">Rabat</option>
+                                            <option value="Safi,Morocco">Safi</option>
+                                            <option value="Settat,Morocco">Settat</option>
+                                            <option value="Salé,Morocco">Salé</option>
+                                            <option value="Tanger,Morocco">Tanger</option>
+                                            <option value="Taza,Morocco">Taza</option>
+                                            <option value="Tétouan,Morocco">Tétouan</option>
+                                        </select>
+                                    </div>
                                 </form>
                             </div>
                             <div class="modal-footer">

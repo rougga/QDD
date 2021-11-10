@@ -47,7 +47,7 @@ let df_elements = {
         dfHeight: "300px",
         border: '',
         url: './vid/upload/',
-        dfHtml: "<video></video>",
+        dfHtml: '<video width="300" height="300" controls><source src="movie.mp4" type="video/mp4"></video>',
         dfScript: "<script></script>"
 
     },
@@ -73,6 +73,17 @@ let df_elements = {
         border: '',
         dfHtml: "<h6 class='p-1 d-block w-100'>Text Demo</h6>",
         dfScript: "<script></script>"
+    },
+    app1Obj:{
+        id: "app1",
+        dfWidth: "300px",
+        dfHeight: "300px",
+        dfColor: "white",
+        dfBgColor: "black",
+        size: '16',
+        border: '',
+        dfHtml: "",
+        dfScript: "<script></script>"
     }
 };
 function getTextObj() {
@@ -95,6 +106,9 @@ function getWeatherObj() {
 }
 function getRollingTextObj() {
     return df_elements.rollingTextObj;
+}
+function getApp1Obj(){
+    return df_elements.app1Obj;
 }
 function addElement(type) {
     switch (type) {
