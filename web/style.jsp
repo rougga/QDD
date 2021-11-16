@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="form-group" id="locationGroup">
                                         <label for="ville">Ville:</label>
-                                        <select class="form-control" id="ville">
+                                        <select class="form-control" id="locationInput">
                                             <option selected disabled value="0">Sélectionnez une ville</option>
                                             <option value="Casablanca,Morocco">Casablanca</option>
                                             <option value="Agadir,Morocco">Agadir</option>

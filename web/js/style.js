@@ -90,6 +90,7 @@ let init = function () {
     $sizeInput = $("#sizeInput");
     $fontWeightInput = $("input[name='fontWeightInput']");
     $fileInput = $("#fileInput");
+    $locationInput = $("#locationInput");
     //
     $.i18n().load({
         fr: './i18n/messages-fr.json',
@@ -162,8 +163,7 @@ let setModal = function (type) {
             break;
         case '@weather':
             $modalTitle.html($.i18n("styling.form.title.add.weather"));
-
-
+            $borderGroup.show();
             $locationGroup.show();
             break;
         case '@news':

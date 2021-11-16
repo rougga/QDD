@@ -51,7 +51,7 @@ let df_elements = {
         dfScript: "<script></script>"
 
     },
-    weatherObj:{
+    weatherObj: {
         id: "weather",
         dfWidth: "300px",
         dfHeight: "300px",
@@ -74,7 +74,7 @@ let df_elements = {
         dfHtml: "<h6 class='p-1 d-block w-100'>Text Demo</h6>",
         dfScript: "<script></script>"
     },
-    app1Obj:{
+    app1Obj: {
         id: "app1",
         dfWidth: "300px",
         dfHeight: "300px",
@@ -107,7 +107,7 @@ function getWeatherObj() {
 function getRollingTextObj() {
     return df_elements.rollingTextObj;
 }
-function getApp1Obj(){
+function getApp1Obj() {
     return df_elements.app1Obj;
 }
 function addElement(type) {
@@ -118,7 +118,7 @@ function addElement(type) {
         case '@clock':
             addClock();
             break;
-        case  '@date':
+        case '@date':
             addDate();
             break;
         case '@image':
@@ -149,40 +149,39 @@ function addText() {
     textObj.size = $sizeInput.val();
     if ($borderInput.prop("checked")) {
         textObj.border = "border";
-    } else
-    {
+    } else {
         textObj.border = "";
     }
     let textDOM = "<div class='resize-drag element row "
-            + textObj.border
-            + "' "
-            + " id='" + textObj.id + "' "
-            + " data-id='" + textObj.id + "'"
-            + " data-type='@text'"
-            + " data-x='0'"
-            + " data-y='0' "
-            + " style='"
-            + "color:" + textObj.dfColor
-            + ";background-color:" + textObj.dfBgColor
-            + ";width:" + textObj.dfWidth
-            + ";height:" + textObj.dfHeight
-            + "'>"
-            + "<h6 class='"
-            + " p-1 "
-            + " w-100 "
-            + $($vAlignInput.filter(":checked")[0]).val()
-            + " "
-            + $($hAlignInput.filter(":checked")[0]).val()
-            + " "
-            + $($fontWeightInput.filter(":checked")[0]).val()
-            + " "
-            + "' "
-            + " style='"
-            + "font-size:" + textObj.size + "px"
-            + "'>" + $textInput.val() + "</h6>"
-            + textObj.dfScript
-            + "</div>"
-            ;
+        + textObj.border
+        + "' "
+        + " id='" + textObj.id + "' "
+        + " data-id='" + textObj.id + "'"
+        + " data-type='@text'"
+        + " data-x='0'"
+        + " data-y='0' "
+        + " style='"
+        + "color:" + textObj.dfColor
+        + ";background-color:" + textObj.dfBgColor
+        + ";width:" + textObj.dfWidth
+        + ";height:" + textObj.dfHeight
+        + "'>"
+        + "<h6 class='"
+        + " p-1 "
+        + " w-100 "
+        + $($vAlignInput.filter(":checked")[0]).val()
+        + " "
+        + $($hAlignInput.filter(":checked")[0]).val()
+        + " "
+        + $($fontWeightInput.filter(":checked")[0]).val()
+        + " "
+        + "' "
+        + " style='"
+        + "font-size:" + textObj.size + "px"
+        + "'>" + $textInput.val() + "</h6>"
+        + textObj.dfScript
+        + "</div>"
+        ;
     $screen.append(textDOM);
 }
 function addClock() {
@@ -193,40 +192,39 @@ function addClock() {
     clockObj.size = $sizeInput.val();
     if ($borderInput.prop("checked")) {
         clockObj.border = "border";
-    } else
-    {
+    } else {
         clockObj.border = "";
     }
     let clockDOM = "<div class='resize-drag element row "
-            + clockObj.border
-            + "' "
-            + " id='" + clockObj.id + "' "
-            + " data-id='" + clockObj.id + "'"
-            + " data-type='@clock'"
-            + " data-x='0'"
-            + " data-y='0' "
-            + " style='"
-            + "color:" + clockObj.dfColor
-            + ";background-color:" + clockObj.dfBgColor
-            + ";width:" + clockObj.dfWidth
-            + ";height:" + clockObj.dfHeight
-            + "'>"
-            + "<h6 class='"
-            + " p-1 "
-            + " w-100 "
-            + " clock "
-            + $($vAlignInput.filter(":checked")[0]).val()
-            + " "
-            + $($hAlignInput.filter(":checked")[0]).val()
-            + " "
-            + $($fontWeightInput.filter(":checked")[0]).val()
-            + "' "
-            + " style='"
-            + "font-size:" + clockObj.size + "px"
-            + "'></h6>"
-            + clockObj.dfScript
-            + "</div>"
-            ;
+        + clockObj.border
+        + "' "
+        + " id='" + clockObj.id + "' "
+        + " data-id='" + clockObj.id + "'"
+        + " data-type='@clock'"
+        + " data-x='0'"
+        + " data-y='0' "
+        + " style='"
+        + "color:" + clockObj.dfColor
+        + ";background-color:" + clockObj.dfBgColor
+        + ";width:" + clockObj.dfWidth
+        + ";height:" + clockObj.dfHeight
+        + "'>"
+        + "<h6 class='"
+        + " p-1 "
+        + " w-100 "
+        + " clock "
+        + $($vAlignInput.filter(":checked")[0]).val()
+        + " "
+        + $($hAlignInput.filter(":checked")[0]).val()
+        + " "
+        + $($fontWeightInput.filter(":checked")[0]).val()
+        + "' "
+        + " style='"
+        + "font-size:" + clockObj.size + "px"
+        + "'></h6>"
+        + clockObj.dfScript
+        + "</div>"
+        ;
     $screen.append(clockDOM);
 }
 function addDate() {
@@ -237,40 +235,39 @@ function addDate() {
     dateObj.size = $sizeInput.val();
     if ($borderInput.prop("checked")) {
         dateObj.border = "border";
-    } else
-    {
+    } else {
         dateObj.border = "";
     }
     let clockDOM = "<div class='resize-drag element row "
-            + dateObj.border
-            + "' "
-            + " id='" + dateObj.id + "' "
-            + " data-id='" + dateObj.id + "'"
-            + " data-type='@date'"
-            + " data-x='0'"
-            + " data-y='0' "
-            + " style='"
-            + "color:" + dateObj.dfColor
-            + ";background-color:" + dateObj.dfBgColor
-            + ";width:" + dateObj.dfWidth
-            + ";height:" + dateObj.dfHeight
-            + "'>"
-            + "<h6 class='"
-            + " p-1 "
-            + " w-100 "
-            + " date "
-            + $($vAlignInput.filter(":checked")[0]).val()
-            + " "
-            + $($hAlignInput.filter(":checked")[0]).val()
-            + " "
-            + $($fontWeightInput.filter(":checked")[0]).val()
-            + "' "
-            + " style='"
-            + "font-size:" + dateObj.size + "px"
-            + "'></h6>"
-            + dateObj.dfScript
-            + "</div>"
-            ;
+        + dateObj.border
+        + "' "
+        + " id='" + dateObj.id + "' "
+        + " data-id='" + dateObj.id + "'"
+        + " data-type='@date'"
+        + " data-x='0'"
+        + " data-y='0' "
+        + " style='"
+        + "color:" + dateObj.dfColor
+        + ";background-color:" + dateObj.dfBgColor
+        + ";width:" + dateObj.dfWidth
+        + ";height:" + dateObj.dfHeight
+        + "'>"
+        + "<h6 class='"
+        + " p-1 "
+        + " w-100 "
+        + " date "
+        + $($vAlignInput.filter(":checked")[0]).val()
+        + " "
+        + $($hAlignInput.filter(":checked")[0]).val()
+        + " "
+        + $($fontWeightInput.filter(":checked")[0]).val()
+        + "' "
+        + " style='"
+        + "font-size:" + dateObj.size + "px"
+        + "'></h6>"
+        + dateObj.dfScript
+        + "</div>"
+        ;
     $screen.append(clockDOM);
 }
 function addImage() {
@@ -281,79 +278,112 @@ function addImage() {
     let url = imageObj.url + filename;
     if ($borderInput.prop("checked")) {
         imageObj.border = "border";
-    } else
-    {
+    } else {
         imageObj.border = "";
     }
     let imageDOM = "<div class='resize-drag element row "
-            + imageObj.border
-            + "' "
-            + " id='" + imageObj.id + "' "
-            + " data-id='" + imageObj.id + "'"
-            + " data-type='@image'"
-            + " data-x='0'"
-            + " data-y='0' "
-            + " style='"
-            + ";width:" + imageObj.dfWidth
-            + ";height:" + imageObj.dfHeight
-            + "'>"
-            + "<img class='"
-            + " p-0 m-0"
-            + " w-100 "
-            + " h-100 "
-            + " image "
-            + "' "
-            + " src='" + url + "'"
-            + " style='"
-            + "font-size:" + imageObj.size + "px"
-            + "'/>"
-            + imageObj.dfScript
-            + "</div>"
-            ;
+        + imageObj.border
+        + "' "
+        + " id='" + imageObj.id + "' "
+        + " data-id='" + imageObj.id + "'"
+        + " data-type='@image'"
+        + " data-x='0'"
+        + " data-y='0' "
+        + " style='"
+        + ";width:" + imageObj.dfWidth
+        + ";height:" + imageObj.dfHeight
+        + "'>"
+        + "<img class='"
+        + " p-0 m-0"
+        + " w-100 "
+        + " h-100 "
+        + " image "
+        + "' "
+        + " src='" + url + "'"
+        + " style='"
+        + "font-size:" + imageObj.size + "px"
+        + "'/>"
+        + imageObj.dfScript
+        + "</div>"
+        ;
     $screen.append(imageDOM);
 
 }
 function addVideo() {
-let videoObj = getVideoObj()();
+    let videoObj = getVideoObj();
     let filename = $fileInput.val().substring($fileInput.val().lastIndexOf('\\') + 1, $fileInput.val().length);
     videoObj(filename);
     videoObj.id = Math.floor(Math.random() * 400);
     let url = videoObj.url + filename;
     if ($borderInput.prop("checked")) {
         videoObj.border = "border";
-    } else
-    {
+    } else {
         videoObj.border = "";
     }
     let videoDOM = "<div class='resize-drag element row "
-            + videoObj.border
-            + "' "
-            + " id='" + videoObj.id + "' "
-            + " data-id='" + videoObj.id + "'"
-            + " data-type='@image'"
-            + " data-x='0'"
-            + " data-y='0' "
-            + " style='"
-            + ";width:" + videoObj.dfWidth
-            + ";height:" + videoObj.dfHeight
-            + "'>"
-            + "<img class='"
-            + " p-0 m-0"
-            + " w-100 "
-            + " h-100 "
-            + " image "
-            + "' "
-            + " src='" + url + "'"
-            + " style='"
-            + "font-size:" + videoObj.size + "px"
-            + "'/>"
-            + videoObj.dfScript
-            + "</div>"
-            ;
+        + videoObj.border
+        + "' "
+        + " id='" + videoObj.id + "' "
+        + " data-id='" + videoObj.id + "'"
+        + " data-type='@image'"
+        + " data-x='0'"
+        + " data-y='0' "
+        + " style='"
+        + ";width:" + videoObj.dfWidth
+        + ";height:" + videoObj.dfHeight
+        + "'>"
+        + "<img class='"
+        + " p-0 m-0"
+        + " w-100 "
+        + " h-100 "
+        + " image "
+        + "' "
+        + " src='" + url + "'"
+        + " style='"
+        + "font-size:" + videoObj.size + "px"
+        + "'/>"
+        + videoObj.dfScript
+        + "</div>"
+        ;
     $screen.append(videoDOM);
 }
 function addWeather() {
+    let weatherObj = getWeatherObj();
+    weatherObj.id = Math.floor(Math.random() * 400);
+    weatherObj.location = $locationInput.val();
+    if ($borderInput.prop("checked")) {
+        weatherObj.border = "border";
+    } else {
+        weatherObj.border = "";
+    }
 
+    let weatherDOM = "<div class='resize-drag element row "
+        + weatherObj.border+ "'"
+        + " id='" + weatherObj.id + "' "
+        + " data-id='" + weatherObj.id + "'"
+        + " data-type='@weather'"
+        + " data-x='0'"
+        + " data-y='0' "
+        + " data-location='"+weatherObj.location+"'"
+        + " style='"
+        + ";width:" + weatherObj.dfWidth
+        + ";height:" + weatherObj.dfHeight
+        + "'"
+        + ">"
+
+        + "<div>"
+        + "<h1 class='weatherDegree'>"
+
+        + "</h1>"
+        + "<h4 class='weatherType'>"
+
+        + "</h4>"
+        + "</div>"
+
+        + "</div>"
+        ;
+
+    $screen.append(weatherObj);
 }
 function addNews() {
 
@@ -387,7 +417,7 @@ function uploadImage(filename) {
     });
 }
 function uploadVideo() {
-let formData = new FormData(document.getElementById("modalForm"));
+    let formData = new FormData(document.getElementById("modalForm"));
     let to = "./uploadVideo";
     let par = {};
     par.file = $fileInput.val();
@@ -433,7 +463,7 @@ function saveScreen() {
     //local caxhe
     //localStorage.setItem("elements", JSON.stringify(toSave));
     //saving fto xml
-    $.get("savescreen", {id: screenId, data: JSON.stringify(toSave)}, function success(data) {
+    $.get("savescreen", { id: screenId, data: JSON.stringify(toSave) }, function success(data) {
         console.log("Saved to XML");
     });
 
