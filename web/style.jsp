@@ -114,21 +114,12 @@
                                             <label class="custom-control-label" for="vA3">Bas</label>
                                         </div>
                                     </div>
-                                    <div class="form-group" id="borderGroup">
-                                        <h6 class="col-form-label font-weight-normal">Bordure:</h6>
-                                        <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input disabled" id="borderInput" value="border">
-                                            <label class="custom-control-label" for="borderInput"> - La bordure</label>
-                                        </div>
-                                    </div>
                                     <div class="form-group" id="fileGroup">
                                         <h6 class="col-form-label font-weight-normal">Fichier:</h6>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="fileInput" accept="image/*" name="file">
                                             <label class="custom-file-label" for="fileInput" id="fileLabel">Choose file</label>
                                         </div>
-
-
                                     </div>
                                     <div class="form-group" id="locationGroup">
                                         <label for="ville">Ville:</label>
@@ -158,6 +149,14 @@
                                             <option value="Taza,Morocco">Taza</option>
                                             <option value="Tétouan,Morocco">Tétouan</option>
                                         </select>
+                                    </div>
+                                    
+                                    <div class="form-group" id="borderGroup">
+                                        <h6 class="col-form-label font-weight-normal">Bordure:</h6>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input disabled" id="borderInput" value="border">
+                                            <label class="custom-control-label" for="borderInput"> - La bordure</label>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

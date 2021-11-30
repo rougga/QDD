@@ -163,7 +163,13 @@ let setModal = function (type) {
             break;
         case '@weather':
             $modalTitle.html($.i18n("styling.form.title.add.weather"));
+            $colorGroup.show();
+            $bgColorGroup.show();
+            $hAlignGroup.show();
+            $vAlignGroup.show();
             $borderGroup.show();
+            $sizeGroup.show();
+            $fontWeightGroup.show();
             $locationGroup.show();
             break;
         case '@news':
