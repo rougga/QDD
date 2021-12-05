@@ -31,7 +31,7 @@ let loadElement = function (element) {
         case '@rollingText':
             loadRollingText(element);
             break;
-            
+
     }
 };
 ///
@@ -145,17 +145,71 @@ function loadImage(imageObj) {
 
 }
 function loadVideo() {
-    
+
 }
-function loadWeather() {
-    
+function loadWeather(elm) {
+    let weatherDOM = "<div class='"
+            + elm.divClass
+            + " "
+            + elm.border
+            + "' "
+            + " id='" + elm.id + "' "
+            + " data-id='" + elm.id + "'"
+            + " data-type='@weather'"
+            + " data-x='" + elm.x + "'"
+            + " data-y='" + elm.y + "' "
+            + " data-location='" + elm.location + "'"
+            + " style='"
+            + "color:" + elm.color
+            + ";background-color:" + elm.bgColor
+            + ";width:" + elm.width + "px"
+            + ";height:" + elm.height + "px"
+            + ";transform:translate(" + elm.x + "px," + elm.y + "px)"
+            + "'>"
+            + "<h6 class='"
+            + elm.class
+            + "' "
+            + " style='"
+            + "font-size:" + elm.size
+            + "'>" + elm.text + "</h6>"
+            + "</div>"
+            ;
+    $("#screen").append(weatherDOM);
 }
 function loadNews() {
-    
+
 }
-function loadRollingText() {
-    
+function loadRollingText(elm) {
+    let rollingTextDOM = "<div class='"
+            + elm.divClass
+            + " "
+            + elm.border
+            + "' "
+            + " id='" + elm.id + "' "
+            + " data-id='" + elm.id + "' "
+            + " data-type='rollingText' "
+            + " data-x='" + elm.x + "'"
+            + " data-y='" + elm.y + "' "
+            + " style='"
+            + "color:" + elm.color
+            + ";background-color:" + elm.bgColor
+            + ";width:" + elm.width + "px"
+            + ";height:" + elm.height + "px"
+            + ";transform:translate(" + elm.x + "px," + elm.y + "px)"
+            + "'>"
+            + "<h6 class='"
+            + elm.class
+            + "' "
+            + " style='"
+            + "font-size:" + elm.size
+            + ";overflow:hidden;"
+            + "height:" + elm.height + ";'>"
+            + elm.text
+            + "</h6>"
+            + "</div>"
+            ;
+    $("#screen").append(rollingTextDOM);
 }
 function loadApp1() {
-    
+
 }

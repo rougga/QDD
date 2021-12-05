@@ -402,64 +402,55 @@ function addNews() {
 
 }
 function addRollingText() {
-
+let rollingTextObj = getRollingTextObj();
+    rollingTextObj.id = Math.floor(Math.random() * 400);
+    rollingTextObj.dfColor = $colorInput.val();
+    rollingTextObj.dfBgColor = $bgColorInput.val();
+    rollingTextObj.size = $sizeInput.val();
+    if ($borderInput.prop("checked")) {
+        rollingTextObj.border = "border";
+    } else {
+        rollingTextObj.border = "";
+    }
+    let rollingTextDOM = "<div class='resize-drag element row "
+            + rollingTextObj.border
+            + "' "
+            + " id='" + rollingTextObj.id + "' "
+            + " data-id='" + rollingTextObj.id + "'"
+            + " data-type='@rollingText'"
+            + " data-x='0'"
+            + " data-y='0' "
+            + " style='"
+            + "color:" + rollingTextObj.dfColor
+            + ";background-color:" + rollingTextObj.dfBgColor
+            + ";width:" + rollingTextObj.dfWidth
+            + ";height:" + rollingTextObj.dfHeight
+            + ";overflow:hidden;'>"
+            + "<h6 class='"
+            + " p-1 "
+            + " w-100 marquee "
+            + $($vAlignInput.filter(":checked")[0]).val()
+            + " "
+            + $($hAlignInput.filter(":checked")[0]).val()
+            + " "
+            + $($fontWeightInput.filter(":checked")[0]).val()
+            + " "
+            + "' "
+            + " style='"
+            + "font-size:" + rollingTextObj.size + "px"
+            +";height:" + rollingTextObj.dfHeight
+            + ";'>" + $textInput.val() + "</h6>"
+            + rollingTextObj.dfScript
+            + "</div>"
+            ;
+    $screen.append(rollingTextDOM);
 }
 function addApp1() {
 
 }
 
 
-// updating functions
-function updateTime() {
-    $('.clock').html(moment().format('HH:mm:ss'));
-    $('.date').html(moment().format('DD-MM-YYYY'));
-}
-const capitalize = (s) => {
-    if (typeof s !== 'string')
-        return '';
-    return s.charAt(0).toUpperCase() + s.slice(1);
-};
-function getWeather(location) {
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=metric&lang=fr&APPID=37e60bb4041c616c61e2f0534aec11a9", function (data) {
-        $(".forcast").html(Math.round(data.main.temp) + "<small>°C</small> - " + data.name + " - " + capitalize(data.weather[0].description));
-    });
-}
-function uploadImage(filename) {
-    let formData = new FormData(document.getElementById("modalForm"));
-    let to = "./uploadImage";
-    let par = {};
-    par.file = $fileInput.val();
-    par.name = filename;
-    $.ajax({
-        url: to,
-        type: "POST",
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function () {
-            console.log("image updated");
-        }
-    });
-}
-function uploadVideo() {
-    let formData = new FormData(document.getElementById("modalForm"));
-    let to = "./uploadVideo";
-    let par = {};
-    par.file = $fileInput.val();
-    par.name = filename;
-    $.ajax({
-        url: to,
-        type: "POST",
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function () {
-            console.log("video updated");
-        }
-    });
-}
+
 function saveScreen() {
     $elements = $(".element");
     let toSave = [];
@@ -482,7 +473,7 @@ function saveScreen() {
             videoUrl: '',
             size: $($elements[i]).find("h6").css("font-size"),
             font: '',
-            location: ''
+            location: $($elements[i]).attr('data-location')
         };
         toSave.push(element);
     }
@@ -496,4 +487,4 @@ function saveScreen() {
     console.log("Saved " + toSave.length + " Elements");
 }
 
-setInterval(updateTime, 1000);
+setInterval(update, 1000);

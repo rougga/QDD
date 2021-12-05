@@ -29,6 +29,10 @@
         <url-pattern>/uploadImage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>uploadVideo</servlet-name>
+        <url-pattern>/uploadVideo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>GetScreens</servlet-name>
         <url-pattern>/getscreens</url-pattern>
     </servlet-mapping>

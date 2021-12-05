@@ -1,7 +1,4 @@
-function updateTime() {
-    $('.clock').html(moment().format('HH:mm:ss'));
-    $('.date').html(moment().format('DD-MM-YYYY'));
-}
+
 let loadElement = function (type, element) {
     switch (type) {
         case '@text':
@@ -184,10 +181,65 @@ function loadNews(element) {
     let newDOM;
 }
 function loadWeather(element) {
-    let weatherDOM;
+    let weatherDOM="<div class=' "
+        + element.divClass
+        + " ' "
+        + " id='" + element.id + "' "
+        + " data-id='" + element.id + "'"
+        + " data-type='" + element.type + "'"
+        + " data-x='" + element.x + "'"
+        + " data-y='" + element.y + "'"
++" data-location='"+element.location+"'"
+        + " style='"
+        + "color:" + element.color
+        + ";background-color:" + element.bgColor
+        + ";width:" + element.width + "px"
+        + ";height:" + element.height + "px"
+        + ";position:absolute"
+        + ";top:" + element.top + "px"
+        + ";left:" + element.left + "px"
+        + "'>"
+        + "<h6 class=' forcast "
+        + element.class
+        + "' "
+        + " style='"
+        + "font-size:" + element.size
+        + "'>"
+        + element.text +
+        "</h6>"
+        + "</div>"
+        ;
+    $screen.append(weatherDOM);
 }
 function loadRollingText(element) {
-    let rollingTextDOM;
+    let rollingTextDOM= "<div class=' "
+        + element.divClass
+        + " ' "
+        + " id='" + element.id + "' "
+        + " data-id='" + element.id + "'"
+        + " data-type='" + element.type + "'"
+        + " data-x='" + element.x + "'"
+        + " data-y='" + element.y + "'"
+        + " style='"
+        + "color:" + element.color
+        + ";background-color:" + element.bgColor
+        + ";width:" + element.width + "px"
+        + ";height:" + element.height + "px"
+        + ";position:absolute"
+        + ";top:" + element.top + "px"
+        + ";left:" + element.left + "px"
+        + ";overflow:hidden;'>"
+        + "<h6 class='"
+        + element.class
+        + "' "
+        + " style='"
+        + "font-size:" + element.size
+        + ";height:"+element.height + "px;'>"
+        + element.text +
+        "</h6>"
+        + "</div>"
+        ;
+    $screen.append(rollingTextDOM);
 }
 function loadApp1(element) {
     let app1;

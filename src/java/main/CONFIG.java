@@ -12,16 +12,16 @@ public class CONFIG {
     //Data files
     public static final String FILE_SCREENS = "/data/xml/screens.xml";
     public static final String FILE_SCREENCONTENT = "/data/xml/screenContent.xml";
-    
+
     //folders
-     public static final String FOLDER_IMAGEUPLOAD = "/img/upload/";
-    
+    public static final String FOLDER_IMAGEUPLOAD = "/img/upload/";
+    public static final String FOLDER_VIDEOUPLOAD = "/video/upload/";
     //Pages
     public static final String PAGE_HOME = "/QDD/index.jsp";
     public static final String PAGE_STYLE = "/QDD/style.jsp";
     public static final String PAGE_SCREEN = "/QDD/screen.jsp";
-    
+
     //date format
     public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    
+
 }

@@ -11,6 +11,7 @@
         <script src="./js/lib/jquery.js"></script>
         <script src="./js/lib/moment.min.js"></script>
         <script src="./js/lib/bootstrap.bundle.min.js"></script>
+        <script src="./js/updateFunctions.js"></script>
         <script src="./js/index.js"></script>
         <script src="./js/loadScreen.js"></script>
     </head>
@@ -26,7 +27,27 @@
         $(document).ready(function () {
             $.get("loadscreen", {id: id}, function success(data, textStatus) {
                 loadScreen(data);
+                
+            let marquee = $('.marquee');
+            let bb= 0;
+            marquee.each(function () {
+                console.log("marquee.each");
+                let mar = $(this), indent = mar.width();
+                mar.marquee = function () {
+                    indent--;
+                    mar.css('text-indent', indent);
+                    if (indent < -1 * mar.text().length*Math.floor(mar.css("font-size").replace("px",""))) {
+                        indent = mar.width();
+                    }
+
+                };
+                setInterval(function () {
+                     mar.marquee();
+                    console.log("marquee");
+                }, 1000 / 60);
             });
+            });
+
         });
     </script>
 </html>

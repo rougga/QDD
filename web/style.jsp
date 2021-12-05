@@ -18,13 +18,16 @@
         <script src="./js/lib/i18n/jquery.i18n.messagestore.js"></script>
         <script src="./js/lib/i18n/jquery.i18n.parser.js"></script>
         <script src="./js/lib/i18n/jquery.i18n.emitter.bidi.js"></script>
+        <script src="./js/init.js"></script>
+        <script src="./js/updateFunctions.js"></script>
+        <script src="./js/uploadFiles.js"></script>
         <script src="./js/style.js"></script>
         <script src="./js/interact.js"></script>
-        <script src="./js/elements.js"></script>
+        <script src="./js/addElements.js"></script>
         <script src="./js/loadEditableScreen.js"></script>
     </head>
     <body>
-        <div class="container-fluid p-0 m-0" style="overflow: hidden">
+        <div class="container-fluid p-0 m-0 " style="overflow: hidden">
             <div class="p-0 m-0 row justify-content-center align-items-center position-absolute " style="left: 44%">
                 <a href="#" class="py-3 px-5 bg-info" style="border-radius: 0 0 50% 50%; opacity: 0.6;"  data-toggle="modal" data-target="#addElementModal" data-type="@text" title="Ajouter Text">
                     <img src="img/icon/list-32.png" />
@@ -205,6 +208,9 @@
                                     </a>
                                     <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="weather" data-dismiss="modal" data-toggle="modal" data-target="#modal" data-type="@weather">
                                         <img src="./img/icon/weather.png" alt=""/>
+                                    </a>
+                                    <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="rollingText" data-dismiss="modal"  data-toggle="modal" data-target="#modal" data-type="@rollingText" title="Ajouter Text Roullant">
+                                        <img src="./img/icon/text.png" alt=""/>
                                     </a>
                                     <a href="#" class="btn btn-secondary border col-6 mb-2 py-4 elementBtn" id="news" data-dismiss="modal" data-toggle="modal" data-target="#modal" data-type="@news">
                                         <img src="./img/icon/news.png" alt=""/>
