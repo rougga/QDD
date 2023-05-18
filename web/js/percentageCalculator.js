@@ -1,21 +1,21 @@
 
 
 
-getWidthPer(width){
+function getWidthPer(width){
   return 0.000000; 
 }
-getHeightPer(height){
+function getHeightPer(height){
   return 0.000000; 
 }
-getXPer(x){
+function getXPer(x){
   return 0.000000;  
 }
-getYPer(y){
+function getYPer(y){
   return 0.000000; 
 }
-getWidth(per){
+function getWidth(per){
  return 0; 
 }
-getheight(per){
+function getheight(per){
  return 0; 
 }

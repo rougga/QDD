@@ -1,6 +1,6 @@
 function uploadImage(filename) {
     let formData = new FormData(document.getElementById("modalForm"));
-    let to = "./uploadImage";
+    let to = "./UploadImage";
     let par = {};
     par.file = $fileInput.val();
     par.name = filename;
@@ -18,7 +18,7 @@ function uploadImage(filename) {
 }
 function uploadVideo(filename) {
     let formData = new FormData(document.getElementById("modalForm"));
-    let to = "./uploadVideo";
+    let to = "./UploadVideo";
     let par = {};
     par.file = $fileInput.val();
     par.name = filename;
