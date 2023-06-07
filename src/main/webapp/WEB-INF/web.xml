@@ -28,6 +28,10 @@
         <servlet-name>RemoveScreen</servlet-name>
         <servlet-class>ma.rougga.qdd.api.RemoveScreen</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>uploadimage2</servlet-name>
+        <servlet-class>ma.rougga.qdd.servlet.MultipartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GetScreens</servlet-name>
         <url-pattern>/getscreens</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>UploadVideo</servlet-name>
         <url-pattern>/uploadVideo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>uploadimage2</servlet-name>
+        <url-pattern>/uploadImage2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

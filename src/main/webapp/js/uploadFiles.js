@@ -1,6 +1,6 @@
 function uploadImage(filename) {
     let formData = new FormData(document.getElementById("modalForm"));
-    let to = "./uploadImage";
+    let to = "./uploadImage2";
     let par = {};
     par.file = $fileInput.val();
     par.name = filename;
