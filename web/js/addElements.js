@@ -46,7 +46,7 @@ let df_elements = {
         dfWidth: "300px",
         dfHeight: "300px",
         border: '',
-        url: './vid/upload/',
+        url: './video/upload/',
         dfHtml: '<video width="300" height="300" controls><source src="movie.mp4" type="video/mp4"></video>',
         dfScript: "<script></script>"
 
@@ -317,7 +317,7 @@ function addImage() {
 function addVideo() {
     let videoObj = getVideoObj();
     let filename = $fileInput.val().substring($fileInput.val().lastIndexOf('\\') + 1, $fileInput.val().length);
-    videoObj(filename);
+    uploadVideo(filename);
     videoObj.id = Math.floor(Math.random() * 400);
     let url = videoObj.url + filename;
     if ($borderInput.prop("checked")) {
@@ -330,23 +330,23 @@ function addVideo() {
             + "' "
             + " id='" + videoObj.id + "' "
             + " data-id='" + videoObj.id + "'"
-            + " data-type='@image'"
+            + " data-type='@video'"
             + " data-x='0'"
             + " data-y='0' "
             + " style='"
             + ";width:" + videoObj.dfWidth
             + ";height:" + videoObj.dfHeight
             + "'>"
-            + "<img class='"
+            + "<video  class='"
             + " p-0 m-0"
             + " w-100 "
             + " h-100 "
-            + " image "
+            + " video "
             + "' "
-            + " src='" + url + "'"
+            + " <source src=' "+ url + "' type='video/mp4'> "
             + " style='"
             + "font-size:" + videoObj.size + "px"
-            + "'/>"
+            + "'> </video>"
             + videoObj.dfScript
             + "</div>"
             ;

@@ -1,0 +1,10 @@
+{
+    "plugins": 
+            [
+                {
+                    "type": "@text", 
+                    "icon": "./text/icon.png"
+                }
+
+            ]
+}
