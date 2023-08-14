@@ -28,3 +28,5 @@ function update() {
     updateTime();
     updateWeather();
 }
+
+setInterval(update, 1000);

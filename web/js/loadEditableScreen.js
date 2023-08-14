@@ -146,6 +146,35 @@ function loadImage(imageObj) {
 }
 function loadVideo() {
 
+    let videoDOM = "<div class=' "
+            + videoObj.divClass
+            + "' "
+            + " id='" + videoObj.id + "' "
+            + " data-id='" + videoObj.id + "'"
+            + " data-type='@video'"
+            + " data-x='" + videoObj.x + "'"
+            + " data-y='" + videoObj.y + "' "
+            + " style='"
+            + "width:" + videoObj.width + "px"
+            + ";height:" + videoObj.height + "px"
+            + ";left:" + videoObj.left + "px"
+            + ";top:" + videoObj.top + "px"
+            + ";transform:translate(" + videoObj.x + "px," + videoObj.y + "px)"
+            + "'>"
+            + "<video  class='"
+            + " p-0 m-0"
+            + " w-100 "
+            + " h-100 "
+            + " video "
+            + videoObj.class
+            + "' "
+            + " <source src=' "+ url + "' type='video/mp4'> "
+            + " style='"
+            + "font-size:" + videoObj.size + "px"
+            + "'> </video>"
+            + "</div>"
+            ;
+    $screen.append(videoDOM);
 }
 function loadWeather(elm) {
     let weatherDOM = "<div class='"
